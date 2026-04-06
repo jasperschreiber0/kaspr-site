@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kaspr — AI Automations for Australian Small Business</title>
+  <meta name="description" content="We build AI automations for Australian small businesses. Things like auto invoice generation, review replies, appointment reminders, and meeting notes. Fixed price, delivered in days.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0b0d12;
+      --surface: #13171f;
+      --border: #222840;
+      --text: #e2e4ee;
+      --muted: #6b7299;
+      --accent: #7c3aed;
+      --accent-light: #a78bfa;
+      --green: #22c55e;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.7; font-size: 16px; }
+    a { color: var(--accent-light); text-decoration: none; }
+    .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+    nav { padding: 22px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+    nav .inner { display: flex; align-items: center; justify-content: space-between; max-width: 860px; margin: 0 auto; padding: 0 24px; }
+    .brand { font-size: 22px; font-weight: 800; color: var(--text); letter-spacing: -1px; font-family: 'Geist', monospace; }
+    .brand span { color: var(--accent-light); }
+    .nav-link { color: var(--muted); font-size: 14px; margin-left: 28px; }
+    .nav-link:hover { color: var(--text); }
+    .nav-cta { background: var(--accent); color: #fff; padding: 9px 18px; border-radius: 8px; font-weight: 600; font-size: 14px; margin-left: 16px; }
+    .nav-cta:hover { background: #6d28d9; color: #fff; }
+
+    .hero { padding: 80px 0 64px; }
+    .hero-label { display: inline-block; font-size: 13px; color: var(--muted); border: 1px solid var(--border); padding: 5px 14px; border-radius: 20px; margin-bottom: 28px; }
+    .hero h1 { font-size: clamp(34px, 5.5vw, 52px); font-weight: 800; line-height: 1.18; letter-spacing: -1px; margin-bottom: 20px; max-width: 720px; }
+    .hero p { font-size: 18px; color: var(--muted); max-width: 540px; margin-bottom: 36px; line-height: 1.7; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn { display: inline-block; padding: 13px 24px; border-radius: 9px; font-weight: 600; font-size: 15px; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: #6d28d9; color: #fff; }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .btn-outline:hover { border-color: var(--accent-light); color: var(--accent-light); }
+
+    .section { padding: 64px 0; }
+    .section + .section { border-top: 1px solid var(--border); }
+    .label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--accent-light); margin-bottom: 14px; }
+    h2 { font-size: clamp(24px, 4vw, 36px); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 12px; }
+    .sub { color: var(--muted); font-size: 16px; margin-bottom: 40px; max-width: 520px; }
+
+    .examples { display: grid; gap: 14px; }
+    .example { display: flex; gap: 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+    .example-icon { font-size: 22px; flex-shrink: 0; width: 36px; }
+    .example h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .example p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .price-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 28px; }
+    .price-card.popular { border-color: var(--accent); }
+    .price-tag { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 6px; }
+    .price-amt { font-size: 42px; font-weight: 800; color: var(--text); line-height: 1; margin-bottom: 8px; }
+    .price-desc { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
+    .price-list { list-style: none; }
+    .price-list li { font-size: 14px; padding: 7px 0; border-bottom: 1px solid var(--border); color: var(--text); }
+    .price-list li:last-child { border: none; }
+    .price-list li::before { content: '✓  '; color: var(--green); font-weight: 700; }
+
+    .how-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; }
+    .step { }
+    .step-n { display: inline-flex; width: 36px; height: 36px; background: var(--accent); border-radius: 50%; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; margin-bottom: 14px; }
+    .step h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+    .step p { font-size: 14px; color: var(--muted); }
+
+    .verticals { display: flex; flex-wrap: wrap; gap: 10px; }
+    .v-tag { background: var(--surface); border: 1px solid var(--border); padding: 8px 16px; border-radius: 20px; font-size: 14px; }
+
+    .honest { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 32px; max-width: 640px; }
+    .honest h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+    .honest p { font-size: 15px; color: var(--muted); line-height: 1.8; }
+    .honest p + p { margin-top: 12px; }
+
+    .cta-box { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 56px 40px; text-align: center; margin: 20px 0 80px; }
+    .cta-box h2 { margin-bottom: 10px; }
+    .cta-box p { color: var(--muted); font-size: 16px; margin-bottom: 28px; }
+    .cta-box small { display: block; margin-top: 14px; color: var(--muted); font-size: 13px; }
+
+    footer { border-top: 1px solid var(--border); padding: 28px 0; }
+    footer .inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; max-width: 860px; margin: 0 auto; padding: 0 24px; }
+    .footer-brand { font-weight: 800; font-size: 16px; font-family: 'Geist', monospace; letter-spacing: -0.5px; }
+    footer p { color: var(--muted); font-size: 13px; }
+
+    @media (max-width: 600px) {
+      .hero { padding: 56px 0 48px; }
+      .cta-box { padding: 40px 24px; }
+      nav .nav-link { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="inner">
+    <div class="brand"><span style="color:var(--text)">k</span><span style="color:var(--accent-light)">as</span><span style="color:var(--text)">pr</span></div>
+    <div style="display:flex;align-items:center">
+      <a href="#how" class="nav-link">How it works</a>
+      <a href="#pricing" class="nav-link">Pricing</a>
+      <a href="https://calendly.com/jasperschreiber0/30min" class="nav-cta">Book a call</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-label">Australia · AI Automation</div>
+    <h1>The admin work your business keeps doing manually — we automate it.</h1>
+    <p>We build working AI automations for Australian small businesses. Fixed price, delivered in days, no lock-in.</p>
+    <div class="hero-btns">
+      <a href="https://calendly.com/jasperschreiber0/30min" class="btn btn-primary">Book a free 30-min call</a>
+      <a href="#pricing" class="btn btn-outline">See what it costs</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="label">What we actually build</div>
+    <h2>Automations that handle the stuff eating your week</h2>
+    <p class="sub">Every automation is built in n8n, connected to your existing tools, and tested before we hand it over.</p>
+    <div class="examples">
+      <div class="example">
+        <div class="example-icon">⭐</div>
+        <div>
+          <h3>Google review replies</h3>
+          <p>New review comes in, AI drafts a reply that sounds like you, you approve in one click. Runs overnight. No more ignoring reviews because you ran out of time.</p>
+        </div>
+      </div>
+      <div class="example">
+        <div class="example-icon">🧾</div>
+        <div>
+          <h3>Invoice from job notes</h3>
+          <p>Paste your job notes into a form — or email them — and a Xero draft invoice is waiting. No manual data entry. Invoices go out the same day the job's done.</p>
+        </div>
+      </div>
+      <div class="example">
+        <div class="example-icon">📅</div>
+        <div>
+          <h3>Appointment reminders</h3>
+          <p>New Calendly booking triggers an SMS 24 hours before and another 1 hour before. No-shows drop. Runs completely automatically while you're on the tools.</p>
+        </div>
+      </div>
+      <div class="example">
+        <div class="example-icon">📋</div>
+        <div>
+          <h3>Meeting notes to action items</h3>
+          <p>Record your meeting, Whisper transcribes it, Claude pulls out the action items, Resend emails everyone. Done before the coffee's cold.</p>
+        </div>
+      </div>
+      <div class="example">
+        <div class="example-icon">📊</div>
+        <div>
+          <h3>Weekly P&L summary</h3>
+          <p>Every Monday morning: a plain-english summary of last week's numbers, pulled from Xero and emailed to you. No spreadsheet, no accountant required.</p>
+        </div>
+      </div>
+      <div class="example">
+        <div class="example-icon">💬</div>
+        <div>
+          <h3>AI website chat widget</h3>
+          <p>Answers FAQs, takes quote requests, books appointments, 24/7. Embedded in your site with one line of code.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="pricing">
+    <div class="label">Pricing</div>
+    <h2>Fixed price. You own it. No subscriptions.</h2>
+    <p class="sub">Pay once. We build, test, and hand it over. 30-day support window included on everything.</p>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-tag">Starter</div>
+        <div class="price-amt">$500</div>
+        <div class="price-desc">One automation. Good for testing the waters.</div>
+        <ul class="price-list">
+          <li>1 automation of your choice</li>
+          <li>Delivered in 2–4 hours</li>
+          <li>30-day support</li>
+          <li>Plain-english handoff guide</li>
+        </ul>
+        <a href="https://buy.stripe.com/cNiaEQ5Paa8v6yf1LZ4ZG00" class="btn btn-outline" style="display:block;text-align:center;margin-top:20px;font-size:14px;">Get started &rarr;</a>
+      </div>
+      <div class="price-card popular">
+        <div class="price-tag">Growth</div>
+        <div class="price-amt">$1,500</div>
+        <div class="price-desc">3–5 automations. Starts to feel like a real system.</div>
+        <ul class="price-list">
+          <li>3–5 automations</li>
+          <li>Delivered in 1–2 days</li>
+          <li>30-day support</li>
+          <li>Handoff document</li>
+          <li>60-min training call</li>
+        </ul>
+        <a href="https://buy.stripe.com/14AbIU1yUfsP2hZaiv4ZG01" class="btn btn-primary" style="display:block;text-align:center;margin-top:20px;font-size:14px;">Get started &rarr;</a>
+      </div>
+      <div class="price-card">
+        <div class="price-tag">Full Stack</div>
+        <div class="price-amt">$4,000</div>
+        <div class="price-desc">8–12 automations. The business runs differently after this.</div>
+        <ul class="price-list">
+          <li>8–12 automations</li>
+          <li>Delivered in 3–5 days</li>
+          <li>30-day support</li>
+          <li>Handoff document</li>
+          <li>60-min training call</li>
+        </ul>
+        <a href="https://buy.stripe.com/8x26oA2CYbcz2hZ4Yb4ZG02" class="btn btn-outline" style="display:block;text-align:center;margin-top:20px;font-size:14px;">Get started &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="how">
+    <div class="label">How it works</div>
+    <h2>Call, scope, build, done.</h2>
+    <p class="sub">Most Starter jobs are delivered same-day or next-day once we have access to your tools.</p>
+    <div class="how-steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <h3>30-min discovery call</h3>
+        <p>We ask about your tools and where your time goes. No pitch, just questions.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <h3>We scope it precisely</h3>
+        <p>You get a specific list: what we're building, how long it takes, what it costs. No vague estimates.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <h3>We build and test it</h3>
+        <p>In your actual tools. You see it running before we hand it over.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">4</div>
+        <h3>You own it</h3>
+        <p>Workflow, credentials, guide. 30 days of support. Then it's yours.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="label">Who we work with</div>
+    <h2>Businesses that are too busy to do it manually forever</h2>
+    <p class="sub">Typically 5–50 people. Already using some digital tools. Still doing too much by hand.</p>
+    <div class="verticals">
+      <span class="v-tag">🔧 Trades & construction</span>
+      <span class="v-tag">🏥 Allied health</span>
+      <span class="v-tag">⚖️ Legal practices</span>
+      <span class="v-tag">📈 Accounting firms</span>
+      <span class="v-tag">🏠 Real estate</span>
+      <span class="v-tag">🍽️ Hospitality</span>
+      <span class="v-tag">💼 Consultants</span>
+      <span class="v-tag">🏗️ Professional services</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="label">Honest bit</div>
+    <div class="honest">
+      <h3>What we are and what we're not</h3>
+      <p>We're not a software company selling you a platform. We're a small team that builds custom automations and hands them over. You don't pay a monthly fee. You don't need to learn new software. You just stop doing the thing manually.</p>
+      <p>We use n8n (self-hosted, your data stays in your environment), Claude for anything that needs judgment, and your existing tools (Xero, Calendly, Gmail, whatever you're already on). We don't rip out your stack — we make it do more.</p>
+      <p>Most clients start with one automation to see if it's worth it. It usually is.</p>
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <h2>Ready to stop doing it manually?</h2>
+    <p>Book a free 30-minute call. We'll tell you exactly what we'd build and what it costs — no obligation.</p>
+    <a href="https://calendly.com/jasperschreiber0/30min" class="btn btn-primary">Book a free call</a>
+    <small>Or just email us: <a href="mailto:hello@kaspr.com.au">hello@kaspr.com.au</a></small>
+  </div>
+
+</div>
+
+<footer>
+  <div class="inner">
+    <div class="footer-brand"><span style="color:var(--text)">k</span><span style="color:var(--accent-light)">as</span><span style="color:var(--text)">pr</span></div>
+    <p>AI automations for Australian small business · kaspr.com.au</p>
+  </div>
+</footer>
+
+</body>
+</html>
