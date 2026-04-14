@@ -1,348 +1,640 @@
 <!DOCTYPE html>
-<html lang="en-AU">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kaspr — AI Automations for Australian Small Business</title>
-  <meta name="description" content="We build AI automations for Australian small businesses. Things like auto invoice generation, review replies, appointment reminders, and meeting notes. Fixed price, delivered in days.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #0b0d12;
-      --surface: #13171f;
-      --border: #222840;
-      --text: #e2e4ee;
-      --muted: #6b7299;
-      --accent: #7c3aed;
-      --accent-light: #a78bfa;
-      --green: #22c55e;
-    }
-    html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--text); font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.7; font-size: 16px; }
-    a { color: var(--accent-light); text-decoration: none; }
-    .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaspr — Social Media on Autopilot</title>
+<meta name="description" content="Your staff send content via WhatsApp. Kaspr writes the captions, picks the best time, and posts to Instagram and TikTok. Done-for-you social automation for Australian small businesses.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    nav { padding: 22px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
-    nav .inner { display: flex; align-items: center; justify-content: space-between; max-width: 860px; margin: 0 auto; padding: 0 24px; }
-    .brand { font-size: 22px; font-weight: 800; color: var(--text); letter-spacing: -1px; font-family: 'Geist', monospace; }
-    .brand span { color: var(--accent-light); }
-    .nav-link { color: var(--muted); font-size: 14px; margin-left: 28px; }
-    .nav-link:hover { color: var(--text); }
-    .nav-cta { background: var(--accent); color: #fff; padding: 9px 18px; border-radius: 8px; font-weight: 600; font-size: 14px; margin-left: 16px; }
-    .nav-cta:hover { background: #6d28d9; color: #fff; }
+:root {
+  --black: #0a0a09;
+  --off-white: #f4f1ec;
+  --warm-white: #faf8f5;
+  --mid: #6b6560;
+  --border: #e2ddd7;
+  --accent: #e8522a;
+  --accent-light: #f5c4b5;
+  --green: #2d6a4f;
+  --green-light: #b7e4c7;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'Syne', sans-serif;
+}
 
-    .hero { padding: 80px 0 64px; }
-    .hero-label { display: inline-block; font-size: 13px; color: var(--muted); border: 1px solid var(--border); padding: 5px 14px; border-radius: 20px; margin-bottom: 28px; }
-    .hero h1 { font-size: clamp(34px, 5.5vw, 52px); font-weight: 800; line-height: 1.18; letter-spacing: -1px; margin-bottom: 20px; max-width: 720px; }
-    .hero p { font-size: 18px; color: var(--muted); max-width: 540px; margin-bottom: 36px; line-height: 1.7; }
-    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn { display: inline-block; padding: 13px 24px; border-radius: 9px; font-weight: 600; font-size: 15px; }
-    .btn-primary { background: var(--accent); color: #fff; }
-    .btn-primary:hover { background: #6d28d9; color: #fff; }
-    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
-    .btn-outline:hover { border-color: var(--accent-light); color: var(--accent-light); }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--off-white); color: var(--black); overflow-x: hidden; cursor: none; }
 
-    .section { padding: 64px 0; }
-    .section + .section { border-top: 1px solid var(--border); }
-    .label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--accent-light); margin-bottom: 14px; }
-    h2 { font-size: clamp(24px, 4vw, 36px); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 12px; }
-    .sub { color: var(--muted); font-size: 16px; margin-bottom: 40px; max-width: 520px; }
+.cursor { position: fixed; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: transform 0.1s, width 0.3s, height 0.3s; mix-blend-mode: multiply; }
+.cursor.hover { width: 40px; height: 40px; opacity: 0.4; }
 
-    .examples { display: grid; gap: 14px; }
-    .example { display: flex; gap: 16px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
-    .example-icon { font-size: 22px; flex-shrink: 0; width: 36px; }
-    .example h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
-    .example p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; }
+.nav-logo { font-family: var(--sans); font-size: 18px; font-weight: 800; letter-spacing: -0.02em; color: var(--off-white); text-decoration: none; }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a { font-size: 13px; font-weight: 500; color: rgba(244,241,236,0.6); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--off-white); }
+.nav-cta { font-size: 12px !important; font-weight: 700 !important; letter-spacing: 0.08em; text-transform: uppercase; color: var(--black) !important; background: var(--off-white); padding: 10px 20px !important; border-radius: 2px; }
+.nav-cta:hover { background: var(--accent) !important; color: var(--off-white) !important; }
 
-    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
-    .price-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 28px; }
-    .price-card.popular { border-color: var(--accent); }
-    .price-tag { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 6px; }
-    .price-amt { font-size: 42px; font-weight: 800; color: var(--text); line-height: 1; margin-bottom: 8px; }
-    .price-desc { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
-    .price-list { list-style: none; }
-    .price-list li { font-size: 14px; padding: 7px 0; border-bottom: 1px solid var(--border); color: var(--text); }
-    .price-list li:last-child { border: none; }
-    .price-list li::before { content: '✓  '; color: var(--green); font-weight: 700; }
+/* HERO */
+.hero { min-height: 100vh; background: var(--black); display: grid; grid-template-rows: 1fr auto; padding: 0 48px 48px; position: relative; overflow: hidden; }
+.hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(244,241,236,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(244,241,236,0.04) 1px, transparent 1px); background-size: 80px 80px; }
+.hero-orb { position: absolute; border-radius: 50%; filter: blur(120px); pointer-events: none; }
+.orb-1 { width: 600px; height: 600px; background: #3d1a0e; top: -100px; right: -100px; opacity: 0.8; }
+.orb-2 { width: 400px; height: 400px; background: #1a0e2e; bottom: 100px; left: -80px; opacity: 0.6; }
+.hero-content { display: flex; flex-direction: column; justify-content: flex-end; padding-top: 140px; position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; width: 100%; }
+.hero-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 32px; opacity: 0; animation: up 0.6s 0.3s ease forwards; }
+.hero-h1 { font-family: var(--serif); font-size: clamp(64px, 10vw, 140px); font-weight: 400; line-height: 0.92; color: var(--off-white); opacity: 0; animation: up 0.8s 0.45s ease forwards; }
+.hero-h1 em { font-style: italic; color: var(--accent-light); }
+.hero-bottom { display: flex; align-items: flex-end; justify-content: space-between; padding-top: 60px; position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; width: 100%; opacity: 0; animation: up 0.6s 0.7s ease forwards; }
+.hero-sub { font-size: 16px; font-weight: 400; color: rgba(244,241,236,0.5); max-width: 380px; line-height: 1.7; }
+.hero-cta-group { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+.hero-cta { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--black); background: var(--off-white); padding: 18px 36px; border-radius: 2px; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+.hero-cta:hover { background: var(--accent); color: white; transform: translateY(-2px); }
+.hero-scroll-hint { font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(244,241,236,0.25); }
 
-    .how-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; }
-    .step { }
-    .step-n { display: inline-flex; width: 36px; height: 36px; background: var(--accent); border-radius: 50%; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; margin-bottom: 14px; }
-    .step h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
-    .step p { font-size: 14px; color: var(--muted); }
+/* PHONE MOCKUP IN HERO */
+.hero-phone { position: absolute; right: 80px; bottom: 80px; z-index: 3; opacity: 0; animation: up 0.8s 0.9s ease forwards; }
+.phone-frame { width: 200px; background: #1a1a18; border-radius: 28px; border: 1.5px solid rgba(244,241,236,0.12); padding: 16px 12px; box-shadow: 0 40px 80px rgba(0,0,0,0.5); }
+.phone-notch { width: 60px; height: 6px; background: rgba(244,241,236,0.08); border-radius: 3px; margin: 0 auto 16px; }
+.wa-bubble { background: #25d366; border-radius: 12px 12px 12px 2px; padding: 8px 10px; margin-bottom: 6px; font-size: 10px; color: white; line-height: 1.4; }
+.wa-bubble-out { background: rgba(244,241,236,0.08); border-radius: 12px 12px 2px 12px; padding: 8px 10px; margin-bottom: 6px; font-size: 10px; color: rgba(244,241,236,0.7); line-height: 1.4; text-align: right; }
+.wa-time { font-size: 8px; color: rgba(244,241,236,0.2); text-align: right; margin-top: 2px; }
+.phone-bar { width: 50px; height: 4px; background: rgba(244,241,236,0.08); border-radius: 2px; margin: 12px auto 0; }
 
-    .verticals { display: flex; flex-wrap: wrap; gap: 10px; }
-    .v-tag { background: var(--surface); border: 1px solid var(--border); padding: 8px 16px; border-radius: 20px; font-size: 14px; }
+/* MARQUEE */
+.marquee-wrap { background: var(--accent); padding: 16px 0; overflow: hidden; white-space: nowrap; }
+.marquee-track { display: inline-flex; gap: 0; animation: marquee 20s linear infinite; }
+.marquee-item { font-size: 12px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: white; padding: 0 40px; display: inline-flex; align-items: center; gap: 16px; }
+.marquee-item::after { content: '×'; opacity: 0.4; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-    .honest { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 32px; max-width: 640px; }
-    .honest h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
-    .honest p { font-size: 15px; color: var(--muted); line-height: 1.8; }
-    .honest p + p { margin-top: 12px; }
+/* SECTIONS */
+.section { padding: 120px 48px; max-width: 1200px; margin: 0 auto; }
+.section-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
+.section-tag::before { content: ''; display: block; width: 24px; height: 2px; background: var(--accent); }
+.section-h2 { font-family: var(--serif); font-size: clamp(36px, 5vw, 68px); font-weight: 400; line-height: 1.1; margin-bottom: 60px; }
 
-    .cta-box { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 56px 40px; text-align: center; margin: 20px 0 80px; }
-    .cta-box h2 { margin-bottom: 10px; }
-    .cta-box p { color: var(--muted); font-size: 16px; margin-bottom: 28px; }
-    .cta-box small { display: block; margin-top: 14px; color: var(--muted); font-size: 13px; }
+/* HOW IT WORKS */
+.how-section { background: var(--warm-white); }
+.how-inner { padding: 120px 48px; max-width: 1200px; margin: 0 auto; }
+.steps { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; }
+.step { background: white; padding: 56px 44px; position: relative; transition: background 0.25s; }
+.step:hover { background: var(--black); color: var(--off-white); }
+.step:hover .step-num { color: var(--accent); }
+.step:hover .step-label { color: var(--accent); }
+.step:hover .step-desc { color: rgba(244,241,236,0.55); }
+.step-num { font-family: var(--serif); font-size: 80px; font-weight: 400; line-height: 1; color: var(--border); margin-bottom: 24px; transition: color 0.25s; }
+.step-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; transition: color 0.25s; }
+.step-title { font-family: var(--serif); font-size: 26px; font-weight: 400; line-height: 1.25; margin-bottom: 16px; transition: color 0.25s; }
+.step-desc { font-size: 14px; line-height: 1.7; color: var(--mid); transition: color 0.25s; }
 
-    footer { border-top: 1px solid var(--border); padding: 28px 0; }
-    footer .inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; max-width: 860px; margin: 0 auto; padding: 0 24px; }
-    .footer-brand { font-weight: 800; font-size: 16px; font-family: 'Geist', monospace; letter-spacing: -0.5px; }
-    footer p { color: var(--muted); font-size: 13px; }
+/* STATEMENT */
+.statement { background: var(--black); padding: 100px 48px; text-align: center; position: relative; overflow: hidden; }
+.statement-inner { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+.statement-text { font-family: var(--serif); font-size: clamp(28px, 4.5vw, 58px); font-weight: 400; line-height: 1.25; color: var(--off-white); }
+.statement-text em { font-style: italic; color: var(--accent-light); }
+.statement-text strong { color: var(--accent); font-style: normal; font-weight: 400; }
 
-    @media (max-width: 600px) {
-      .hero { padding: 56px 0 48px; }
-      .cta-box { padding: 40px 24px; }
-      nav .nav-link { display: none; }
-    }
-  </style>
+/* VERTICALS */
+.verticals-section { background: var(--off-white); }
+.verticals-inner { padding: 120px 48px; max-width: 1200px; margin: 0 auto; }
+.verticals-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; margin-top: 60px; }
+.vertical { background: white; padding: 32px 28px; transition: background 0.2s, transform 0.2s; cursor: default; }
+.vertical:hover { background: var(--black); transform: translateY(-4px); }
+.vertical:hover .v-name { color: var(--off-white); }
+.v-icon { font-size: 24px; margin-bottom: 16px; display: block; }
+.v-name { font-size: 13px; font-weight: 700; letter-spacing: 0.02em; transition: color 0.2s; }
+
+/* SOCIAL PROOF */
+.proof-section { background: var(--warm-white); }
+.proof-inner { padding: 120px 48px; max-width: 1200px; margin: 0 auto; }
+.proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 60px; }
+.proof-card { background: white; padding: 48px 40px; }
+.proof-quote { font-family: var(--serif); font-size: 22px; font-weight: 400; line-height: 1.4; color: var(--black); margin-bottom: 32px; }
+.proof-quote em { font-style: italic; color: var(--accent); }
+.proof-author { display: flex; align-items: center; gap: 16px; }
+.proof-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--accent-light); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+.proof-name { font-size: 13px; font-weight: 700; letter-spacing: 0.02em; }
+.proof-biz { font-size: 12px; color: var(--mid); margin-top: 2px; }
+.proof-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 2px; }
+.proof-stat { background: var(--black); padding: 40px 36px; text-align: center; }
+.proof-stat-num { font-family: var(--serif); font-size: 56px; font-weight: 400; color: var(--accent-light); line-height: 1; margin-bottom: 8px; }
+.proof-stat-label { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(244,241,236,0.4); }
+
+/* PRICING */
+.pricing-section { background: var(--off-white); }
+.pricing-inner { padding: 120px 48px; max-width: 1200px; margin: 0 auto; }
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 60px; }
+.price-card { background: white; padding: 52px 44px; position: relative; transition: transform 0.25s; }
+.price-card:hover { transform: translateY(-8px); }
+.price-card.featured { background: var(--black); color: var(--off-white); }
+.price-card.featured .price-tier { color: var(--accent-light); }
+.price-card.featured .price-divider { border-color: rgba(244,241,236,0.1); }
+.price-card.featured .price-desc { color: rgba(244,241,236,0.5); }
+.price-card.featured .price-feature { color: rgba(244,241,236,0.75); border-color: rgba(244,241,236,0.07); }
+.price-card.featured .price-feature::before { color: var(--accent-light); }
+.featured-pill { position: absolute; top: -13px; left: 44px; background: var(--accent); color: white; font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 5px 14px; border-radius: 2px; }
+.price-tier { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+.price-amount { font-family: var(--serif); font-size: 64px; font-weight: 400; line-height: 1; margin-bottom: 4px; }
+.price-note { font-size: 13px; color: var(--mid); margin-bottom: 28px; }
+.price-divider { border: none; border-top: 1px solid var(--border); margin-bottom: 28px; }
+.price-desc { font-size: 14px; line-height: 1.7; color: var(--mid); margin-bottom: 28px; }
+.price-features { list-style: none; margin-bottom: 40px; }
+.price-feature { font-size: 13.5px; padding: 10px 0; border-bottom: 1px solid var(--border); color: #2a2724; display: flex; align-items: flex-start; gap: 12px; }
+.price-feature::before { content: '→'; color: var(--accent); flex-shrink: 0; margin-top: 1px; }
+.price-btn { display: block; width: 100%; padding: 16px; text-align: center; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border: 1.5px solid var(--black); background: transparent; color: var(--black); cursor: pointer; text-decoration: none; transition: all 0.2s; border-radius: 2px; }
+.price-btn:hover { background: var(--black); color: var(--off-white); }
+.featured .price-btn { background: var(--accent); border-color: var(--accent); color: white; }
+.featured .price-btn:hover { background: #cc3d18; border-color: #cc3d18; }
+
+/* FAQ */
+.faq-section { background: var(--warm-white); }
+.faq-inner { padding: 120px 48px; max-width: 900px; margin: 0 auto; }
+.faq-list { margin-top: 60px; }
+.faq-item { border-top: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: 1px solid var(--border); }
+.faq-q { width: 100%; background: none; border: none; padding: 28px 0; font-family: var(--serif); font-size: 22px; font-weight: 400; text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 24px; color: var(--black); }
+.faq-q .icon { font-size: 20px; color: var(--accent); flex-shrink: 0; transition: transform 0.3s; }
+.faq-item.open .icon { transform: rotate(45deg); }
+.faq-a { font-size: 15px; line-height: 1.75; color: var(--mid); max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; }
+.faq-item.open .faq-a { max-height: 300px; padding-bottom: 28px; }
+
+/* FOOTER CTA */
+.footer-cta { background: var(--accent); padding: 120px 48px; text-align: center; position: relative; overflow: hidden; }
+.footer-cta-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+.footer-cta h2 { font-family: var(--serif); font-size: clamp(36px, 6vw, 72px); font-weight: 400; line-height: 1.1; color: white; margin-bottom: 20px; }
+.footer-cta h2 em { font-style: italic; color: rgba(255,255,255,0.65); }
+.footer-cta p { font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 44px; }
+.footer-cta-btn { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); background: white; padding: 20px 48px; border-radius: 2px; text-decoration: none; transition: transform 0.2s; }
+.footer-cta-btn:hover { transform: translateY(-3px); }
+
+/* FOOTER */
+footer { background: var(--black); padding: 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.footer-logo { font-family: var(--sans); font-size: 16px; font-weight: 800; color: var(--off-white); letter-spacing: -0.02em; }
+.footer-copy { font-size: 12px; color: rgba(244,241,236,0.25); }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { font-size: 12px; color: rgba(244,241,236,0.35); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--off-white); }
+
+/* PRIVACY / TERMS PAGES */
+.legal-page { display: none; min-height: 100vh; background: var(--off-white); padding: 120px 48px 80px; }
+.legal-page.active { display: block; }
+.legal-inner { max-width: 800px; margin: 0 auto; }
+.legal-inner h1 { font-family: var(--serif); font-size: clamp(36px, 5vw, 60px); font-weight: 400; margin-bottom: 12px; }
+.legal-inner .legal-date { font-size: 13px; color: var(--mid); margin-bottom: 60px; }
+.legal-inner h2 { font-size: 18px; font-weight: 700; margin: 40px 0 16px; }
+.legal-inner p { font-size: 15px; line-height: 1.8; color: #3a3632; margin-bottom: 16px; }
+.legal-inner ul { margin: 0 0 16px 20px; }
+.legal-inner li { font-size: 15px; line-height: 1.8; color: #3a3632; margin-bottom: 8px; }
+.legal-back { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); text-decoration: none; margin-bottom: 48px; }
+.legal-back:hover { text-decoration: underline; }
+
+/* ANIMATIONS */
+@keyframes up { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .hero { padding: 0 24px 40px; }
+  .hero-h1 { font-size: clamp(48px, 14vw, 80px); }
+  .hero-bottom { flex-direction: column; align-items: flex-start; gap: 32px; }
+  .hero-phone { display: none; }
+  .section, .how-inner, .verticals-inner, .pricing-inner, .faq-inner, .proof-inner { padding: 80px 24px; }
+  .steps, .proof-grid, .pricing-grid { grid-template-columns: 1fr; }
+  .verticals-grid { grid-template-columns: repeat(2, 1fr); }
+  .proof-stat-row { grid-template-columns: 1fr; }
+  footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+  .statement, .footer-cta { padding: 80px 24px; }
+  .legal-page { padding: 100px 24px 60px; }
+}
+</style>
 </head>
 <body>
 
+<div class="cursor" id="cursor"></div>
+
+<!-- MAIN SITE -->
+<div id="main-site">
+
 <nav>
-  <div class="inner">
-    <div class="brand"><span style="color:var(--text)">k</span><span style="color:var(--accent-light)">as</span><span style="color:var(--text)">pr</span></div>
-    <div style="display:flex;align-items:center">
-      <a href="#how" class="nav-link">How it works</a>
-      <a href="#pricing" class="nav-link">Pricing</a>
-      <a href="https://calendly.com/jasperschreiber0/15min" class="nav-cta">Book a call</a>
-    </div>
+  <a href="/" class="nav-logo">kaspr</a>
+  <div class="nav-links">
+    <a href="#how">How it works</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="mailto:hello@kaspr.com.au" class="nav-cta">Book a call</a>
   </div>
 </nav>
 
-<div class="container">
-
-  <div class="hero">
-    <div class="hero-label">Australia · Lead Generation + Outreach Automation</div>
-    <h1>Stop struggling with lead flow. Build a revenue engine.</h1>
-    <p>Kaspr finds warm leads, runs outreach at scale, and closes the loop so nothing falls through. Built for Australian small business owners who are tired of inconsistent pipeline and wasted ad spend.</p>
-    <div class="hero-btns">
-      <a href="https://calendly.com/jasperschreiber0/15min" class="btn btn-primary">Book a free 15-min call</a>
-      <a href="#services" class="btn btn-outline">See our services</a>
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-orb orb-1"></div>
+  <div class="hero-orb orb-2"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Social Media Automation · Built for Australian Small Business</p>
+    <h1 class="hero-h1">Your staff post.<br><em>We handle it.</em></h1>
+  </div>
+  <div class="hero-bottom">
+    <p class="hero-sub">Your team sends content via WhatsApp. AI writes the caption, picks the hashtags, and posts to Instagram and TikTok. Nothing to learn. Nobody to hire.</p>
+    <div class="hero-cta-group">
+      <a href="mailto:hello@kaspr.com.au" class="hero-cta">Book a free 20-min call</a>
+      <span class="hero-scroll-hint">↓ See how it works</span>
     </div>
   </div>
 
-  <div class="section" id="services">
-    <div class="label">What We Build</div>
-    <h2>Everything tradies lose without automation</h2>
-    <p class="sub">Five systems that work together. One integrated system.</p>
-    <div class="examples" style="margin-bottom:52px">
-      <div class="example">
-        <div class="example-icon">🎯</div>
-        <div>
-          <h3>Find Jobs Before Your Competitors</h3>
-          <p>We find people in your area who need what you do — before they call someone else. No more scrolling job sites or waiting for referrals to dry up.</p>
-        </div>
-      </div>
-      <div class="example">
-        <div class="example-icon">📧</div>
-        <div>
-          <h3>Follow Up Automatically</h3>
-          <p>When a quote goes out and they don't reply, we chase it for you. Most tradies lose 2-3 jobs a month to quotes that just sit there.</p>
-        </div>
-      </div>
-      <div class="example">
-        <div class="example-icon">🔄</div>
-        <div>
-          <h3>Never Miss a Callback</h3>
-          <p>Every inquiry gets followed up automatically until they say yes or no. No more leads going cold because you were on the tools.</p>
-        </div>
-      </div>
-      <div class="example">
-        <div class="example-icon">📊</div>
-        <div>
-          <h3>See What's Actually Working</h3>
-          <p>Every Monday: how many jobs came in, which quotes converted, what's costing you money. No spreadsheets, no guessing.</p>
-        </div>
-      </div>
-      <div class="example">
-        <div class="example-icon">💬</div>
-        <div>
-          <h3>Answers Your Phone 24/7</h3>
-          <p>Website visitors get instant answers to common questions, book a time, or leave their details. You get the callback, not a missed opportunity.</p>
-        </div>
-      </div>
+  <!-- Phone mockup -->
+  <div class="hero-phone">
+    <div class="phone-frame">
+      <div class="phone-notch"></div>
+      <div class="wa-bubble">📸 hey just filmed the new nail set — sending now</div>
+      <div class="wa-bubble-out">Got it ✅ We'll have this posted soon!</div>
+      <div class="wa-bubble" style="background: #128c7e;">Your post is scheduled 📅<br>Instagram: Tue 6pm<br>TikTok: Tue 6pm<br><br>Reply PREVIEW to see the caption.</div>
+      <div class="wa-time">just now</div>
+      <div class="phone-bar"></div>
     </div>
   </div>
+</section>
 
-  <div class="section">
-    <div class="label">Additional Automations</div>
-    <h2>Operational systems that free up time</h2>
-    <p class="sub">Invoicing, review replies, appointment reminders, and more. Same fixed-price model.</p>
-    <div class="examples">
-      <div class="example">
-        <div class="example-icon">⭐</div>
-        <div>
-          <h3>Google review replies</h3>
-          <p>New review comes in, AI drafts a reply that sounds like you, you approve in one click. Runs overnight. No more ignoring reviews because you ran out of time.</p>
-        </div>
-      </div>
-      <div class="example">
-        <div class="example-icon">🧾</div>
-        <div>
-          <h3>Invoice from job notes</h3>
-          <p>Paste your job notes into a form — or email them — and a Xero draft invoice is waiting. No manual data entry. Invoices go out the same day the job's done.</p>
-        </div>
-      </div>
-      <div class="example">
-        <div class="example-icon">📅</div>
-        <div>
-          <h3>Appointment reminders</h3>
-          <p>New Calendly booking triggers an SMS 24 hours before and another 1 hour before. No-shows drop. Runs completely automatically while you're on the tools.</p>
-        </div>
-      </div>
-      <div class="example">
-        <div class="example-icon">📋</div>
-        <div>
-          <h3>Meeting notes to action items</h3>
-          <p>Record your meeting, Whisper transcribes it, Claude pulls out the action items, Resend emails everyone. Done before the coffee's cold.</p>
-        </div>
-      </div>
-      <div class="example">
-        <div class="example-icon">📊</div>
-        <div>
-          <h3>Weekly P&L summary</h3>
-          <p>Every Monday morning: a plain-english summary of last week's numbers, pulled from Xero and emailed to you. No spreadsheet, no accountant required.</p>
-        </div>
-      </div>
-      <div class="example">
-        <div class="example-icon">💬</div>
-        <div>
-          <h3>AI website chat widget</h3>
-          <p>Answers FAQs, takes quote requests, books appointments, 24/7. Embedded in your site with one line of code.</p>
-        </div>
-      </div>
-    </div>
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Nail & Lash Studios</span>
+    <span class="marquee-item">Beauty Salons</span>
+    <span class="marquee-item">Brow Bars</span>
+    <span class="marquee-item">Pilates & Yoga</span>
+    <span class="marquee-item">Skin Clinics</span>
+    <span class="marquee-item">Cafés & Brunch</span>
+    <span class="marquee-item">Boutique Retail</span>
+    <span class="marquee-item">Tanning Studios</span>
+    <span class="marquee-item">Wellness Clinics</span>
+    <span class="marquee-item">Nail & Lash Studios</span>
+    <span class="marquee-item">Beauty Salons</span>
+    <span class="marquee-item">Brow Bars</span>
+    <span class="marquee-item">Pilates & Yoga</span>
+    <span class="marquee-item">Skin Clinics</span>
+    <span class="marquee-item">Cafés & Brunch</span>
+    <span class="marquee-item">Boutique Retail</span>
+    <span class="marquee-item">Tanning Studios</span>
+    <span class="marquee-item">Wellness Clinics</span>
   </div>
-
-  <div class="section" id="pricing">
-    <div class="label">Pricing</div>
-    <h2>Fixed price. You own it. No subscriptions.</h2>
-    <p class="sub">Pay once. We build, test, and hand it over. 30-day support window included on everything.</p>
-    <div class="pricing-grid">
-      <div class="price-card">
-        <div class="price-tag">Starter</div>
-        <div class="price-amt">$1,500</div>
-        <div class="price-desc">Test drive automation without the risk — one system, delivered in 2–3 days.</div>
-        <ul class="price-list">
-          <li>1 automation of your choice</li>
-          <li>Delivered in 2–3 business days</li>
-          <li>30-day support</li>
-          <li>Plain-English setup guide</li>
-        </ul>
-        <a href="https://buy.stripe.com/cNiaEQ5Paa8v6yf1LZ4ZG00" class="btn btn-outline" style="display:block;text-align:center;margin-top:20px;font-size:14px;">Get started &rarr;</a>
-      </div>
-      <div class="price-card popular">
-        <div class="price-tag">Growth</div>
-        <div class="price-amt">$4,000</div>
-        <div class="price-desc">Stop doing the same admin job five times a week — automate 3–5 of your biggest time-wasters.</div>
-        <ul class="price-list">
-          <li>3–5 automations</li>
-          <li>Delivered in 5–7 business days</li>
-          <li>30-day support</li>
-          <li>Handoff document</li>
-          <li>60-min training call</li>
-        </ul>
-        <a href="https://buy.stripe.com/14AbIU1yUfsP2hZaiv4ZG01" class="btn btn-primary" style="display:block;text-align:center;margin-top:20px;font-size:14px;">Get started &rarr;</a>
-      </div>
-      <div class="price-card">
-        <div class="price-tag">Scale</div>
-        <div class="price-amt">$9,500</div>
-        <div class="price-desc">Run your business lean without hiring another person — 8–12 automations handling the repetitive stuff.</div>
-        <ul class="price-list">
-          <li>8–12 automations</li>
-          <li>Delivered in 2–3 weeks</li>
-          <li>30-day support + priority support after</li>
-          <li>Handoff document</li>
-          <li>60-min training call</li>
-        </ul>
-        <a href="https://buy.stripe.com/8x26oA2CYbcz2hZ4Yb4ZG02" class="btn btn-outline" style="display:block;text-align:center;margin-top:20px;font-size:14px;">Get started &rarr;</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="section" id="how">
-    <div class="label">How it works</div>
-    <h2>Call, scope, build, done.</h2>
-    <p class="sub">Most Starter jobs are delivered same-day or next-day once we have access to your tools.</p>
-    <div class="how-steps">
-      <div class="step">
-        <div class="step-n">1</div>
-        <h3>15-min discovery call</h3>
-        <p>We ask about your tools and where your time goes. No pitch, just questions.</p>
-      </div>
-      <div class="step">
-        <div class="step-n">2</div>
-        <h3>We scope it precisely</h3>
-        <p>You get a specific list: what we're building, how long it takes, what it costs. No vague estimates.</p>
-      </div>
-      <div class="step">
-        <div class="step-n">3</div>
-        <h3>We build and test it</h3>
-        <p>In your actual tools. You see it running before we hand it over.</p>
-      </div>
-      <div class="step">
-        <div class="step-n">4</div>
-        <h3>You own it</h3>
-        <p>Workflow, credentials, guide. 30 days of support. Then it's yours.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="label">Who we work with</div>
-    <h2>Businesses struggling with inconsistent lead flow</h2>
-    <p class="sub">Typically 5–50 people. Generating some leads but pipeline is unreliable. Marketing spend isn't tracked. Outreach is manual or non-existent.</p>
-    <div class="verticals">
-      <span class="v-tag">🔧 Trades & construction</span>
-      <span class="v-tag">🏥 Allied health</span>
-      <span class="v-tag">⚖️ Legal practices</span>
-      <span class="v-tag">📈 Accounting firms</span>
-      <span class="v-tag">🏠 Real estate</span>
-      <span class="v-tag">🍽️ Hospitality</span>
-      <span class="v-tag">💼 Consultants</span>
-      <span class="v-tag">🏗️ Professional services</span>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="label">Honest bit</div>
-    <div class="honest">
-      <h3>What we are and what we're not</h3>
-      <p>We're not a software company selling you a platform. We're a small team that builds custom automations and hands them over. You don't pay a monthly fee. You don't need to learn new software. You just stop doing the thing manually.</p>
-      <p>We use n8n (self-hosted, your data stays in your environment), Claude for anything that needs judgment, and your existing tools (Xero, Calendly, Gmail, whatever you're already on). We don't rip out your stack — we make it do more.</p>
-      <p>Most clients start with one automation to see if it's worth it. It usually is.</p>
-    </div>
-  </div>
-
-  <div class="section" style="padding-top:40px;padding-bottom:40px">
-    <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
-      <div>
-        <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--accent-light);margin-bottom:6px">Custom builds available</div>
-        <div style="font-size:16px;font-weight:700;margin-bottom:4px">Need something specific?</div>
-        <div style="font-size:14px;color:var(--muted)">We build custom lead generation automations, scoring workflows, and pipeline integrations. Same fixed-price model, same 30-day support window.</div>
-      </div>
-      <a href="https://calendly.com/jasperschreiber0/15min" class="btn btn-outline" style="white-space:nowrap;font-size:14px">Book a call &rarr;</a>
-    </div>
-  </div>
-
-  <div class="cta-box">
-    <h2>Ready to build a lead generation system that actually works?</h2>
-    <p>Book a free 15-minute call. We'll audit your current pipeline, show you where leads are slipping, and tell you exactly what we'd build — no obligation.</p>
-    <a href="https://calendly.com/jasperschreiber0/15min" class="btn btn-primary">Book a free call</a>
-    <small>Or just email us: <a href="mailto:hello@kaspr.com.au">hello@kaspr.com.au</a></small>
-  </div>
-
 </div>
 
-<footer>
-  <div class="inner">
-    <div class="footer-brand"><span style="color:var(--text)">k</span><span style="color:var(--accent-light)">as</span><span style="color:var(--text)">pr</span></div>
-    <p>AI automations for Australian small business · kaspr.com.au</p>
+<section class="how-section" id="how">
+  <div class="how-inner">
+    <p class="section-tag reveal">How it works</p>
+    <h2 class="section-h2 reveal">Three agents.<br>Zero extra work.</h2>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <p class="step-label">Staff send via WhatsApp</p>
+        <h3 class="step-title">Photo, video, voice note — whatever's on the phone</h3>
+        <p class="step-desc">Your team sends content to a WhatsApp number. That's their only job. No new apps, no logins, no briefing a social media person. Just send.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">02</div>
+        <p class="step-label">AI writes the caption</p>
+        <h3 class="step-title">On-brand captions, trending hashtags, best post time</h3>
+        <p class="step-desc">The AI scans what's trending in your niche that day, writes a caption in your brand voice, picks 10 hashtags, and finds the best time to post. You get a WhatsApp preview first.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">03</div>
+        <p class="step-label">Posted automatically</p>
+        <h3 class="step-title">Instagram and TikTok, scheduled and live</h3>
+        <p class="step-desc">Posts go live at the right time without anyone touching a phone. If something's off, reply EDIT to WhatsApp and it rewrites. You're in control without doing the work.</p>
+      </div>
+    </div>
   </div>
+</section>
+
+<div class="statement">
+  <div class="statement-inner reveal">
+    <p class="statement-text">
+      <em>"The content already exists."</em><br>
+      It just never <strong>makes it to the feed.</strong>
+    </p>
+  </div>
+</div>
+
+<section class="verticals-section">
+  <div class="verticals-inner">
+    <p class="section-tag reveal">Built for</p>
+    <h2 class="section-h2 reveal">Businesses where<br>the team <em style="font-family:var(--serif);font-style:italic">is</em> the brand.</h2>
+    <div class="verticals-grid reveal">
+      <div class="vertical"><span class="v-icon">💅</span><span class="v-name">Nail & Lash Studios</span></div>
+      <div class="vertical"><span class="v-icon">✨</span><span class="v-name">Brow Bars</span></div>
+      <div class="vertical"><span class="v-icon">💆‍♀️</span><span class="v-name">Beauty Salons</span></div>
+      <div class="vertical"><span class="v-icon">🧴</span><span class="v-name">Skin Clinics</span></div>
+      <div class="vertical"><span class="v-icon">🌿</span><span class="v-name">Wellness & Tanning</span></div>
+      <div class="vertical"><span class="v-icon">🧘‍♀️</span><span class="v-name">Pilates & Yoga</span></div>
+      <div class="vertical"><span class="v-icon">☕</span><span class="v-name">Cafés & Brunch</span></div>
+      <div class="vertical"><span class="v-icon">🛍️</span><span class="v-name">Boutique Retail</span></div>
+      <div class="vertical"><span class="v-icon">🏋️‍♀️</span><span class="v-name">Personal Training</span></div>
+      <div class="vertical"><span class="v-icon">🐾</span><span class="v-name">Pet Grooming</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="proof-section">
+  <div class="proof-inner">
+    <p class="section-tag reveal">Early results</p>
+    <h2 class="section-h2 reveal">From 2 posts a month<br>to <em style="font-family:var(--serif);font-style:italic">4 posts a week.</em></h2>
+    <div class="proof-grid reveal">
+      <div class="proof-card">
+        <p class="proof-quote">"We were posting maybe twice a month. Now the feed actually looks like our salon. My girls just send stuff on their lunch break and it's <em>done.</em>"</p>
+        <div class="proof-author">
+          <div class="proof-avatar">💅</div>
+          <div>
+            <p class="proof-name">Jade M.</p>
+            <p class="proof-biz">Nail studio · Wollongong</p>
+          </div>
+        </div>
+      </div>
+      <div class="proof-card">
+        <p class="proof-quote">"I kept saying I'd sort the socials out. Three years later, still hadn't. Setup took a week and now I don't think about it at all. It just <em>runs.</em>"</p>
+        <div class="proof-author">
+          <div class="proof-avatar">🧘‍♀️</div>
+          <div>
+            <p class="proof-name">Sarah K.</p>
+            <p class="proof-biz">Pilates studio · Thirroul</p>
+          </div>
+        </div>
+      </div>
+      <div class="proof-card">
+        <p class="proof-quote">"Honestly thought it would sound like a robot. It doesn't. First 10 posts we approved everything. Now I don't even check unless I want to. <em>Completely hands-off.</em>"</p>
+        <div class="proof-author">
+          <div class="proof-avatar">✨</div>
+          <div>
+            <p class="proof-name">Mia T.</p>
+            <p class="proof-biz">Brow & lash bar · Fairy Meadow</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="proof-stat-row reveal">
+      <div class="proof-stat">
+        <div class="proof-stat-num">4×</div>
+        <p class="proof-stat-label">More posts per week</p>
+      </div>
+      <div class="proof-stat">
+        <div class="proof-stat-num">7 days</div>
+        <p class="proof-stat-label">Average setup time</p>
+      </div>
+      <div class="proof-stat">
+        <div class="proof-stat-num">0</div>
+        <p class="proof-stat-label">New apps to learn</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing-section" id="pricing">
+  <div class="pricing-inner">
+    <p class="section-tag reveal">Pricing</p>
+    <h2 class="section-h2 reveal">One setup fee.<br>Posts every week.</h2>
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <p class="price-tier">Starter</p>
+        <div class="price-amount">$1,500</div>
+        <p class="price-note">one-time · 30 days support</p>
+        <hr class="price-divider">
+        <p class="price-desc">One platform. Stop letting content die in the camera roll.</p>
+        <ul class="price-features">
+          <li class="price-feature">Full 3-agent pipeline setup</li>
+          <li class="price-feature">WhatsApp content inbox</li>
+          <li class="price-feature">1 platform (IG or TikTok)</li>
+          <li class="price-feature">10 brand voice caption templates</li>
+          <li class="price-feature">Trend Scout 3×/week</li>
+          <li class="price-feature">30-day onboarding support</li>
+        </ul>
+        <a href="mailto:hello@kaspr.com.au" class="price-btn">Get started</a>
+      </div>
+      <div class="price-card featured reveal">
+        <div class="featured-pill">Most Popular</div>
+        <p class="price-tier">Growth</p>
+        <div class="price-amount">$4,000</div>
+        <p class="price-note">one-time · 60 days support</p>
+        <hr class="price-divider">
+        <p class="price-desc">Active team, both platforms. Full autopilot.</p>
+        <ul class="price-features">
+          <li class="price-feature">Full 3-agent pipeline setup</li>
+          <li class="price-feature">Instagram + TikTok</li>
+          <li class="price-feature">Custom brand voice training</li>
+          <li class="price-feature">Trend Scout daily</li>
+          <li class="price-feature">Competitor monitoring (3 accounts)</li>
+          <li class="price-feature">Monthly performance report</li>
+          <li class="price-feature">60-day support + 1 tune-up</li>
+        </ul>
+        <a href="mailto:hello@kaspr.com.au" class="price-btn">Get started</a>
+      </div>
+      <div class="price-card reveal">
+        <p class="price-tier">Scale</p>
+        <div class="price-amount">$9,500</div>
+        <p class="price-note">one-time · 90 days support</p>
+        <hr class="price-divider">
+        <p class="price-desc">Multi-location or high-volume. Full stack automation.</p>
+        <ul class="price-features">
+          <li class="price-feature">Everything in Growth</li>
+          <li class="price-feature">Multi-location support</li>
+          <li class="price-feature">Paid ad copy generation</li>
+          <li class="price-feature">Google Business auto-posting</li>
+          <li class="price-feature">Slack/Discord live dashboard</li>
+          <li class="price-feature">90-day support + 3 tune-ups</li>
+        </ul>
+        <a href="mailto:hello@kaspr.com.au" class="price-btn">Get started</a>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:13px;color:var(--mid);margin-top:28px;">Accounting practices and NDIS providers — <a href="mailto:hello@kaspr.com.au" style="color:var(--accent)">contact us for enterprise pricing.</a></p>
+  </div>
+</section>
+
+<section class="faq-section" id="faq">
+  <div class="faq-inner">
+    <p class="section-tag reveal">FAQ</p>
+    <h2 class="section-h2 reveal">Common questions.</h2>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q">Will it actually sound like us? <span class="icon">+</span></button>
+        <div class="faq-a">Yes — we train the AI on your brand voice in the first week using your existing posts and a short onboarding form. You approve the first 10 posts before anything goes live. After that it's hands-off, but you can always reply EDIT to any WhatsApp preview and the agent rewrites it.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How much does my team actually have to do? <span class="icon">+</span></button>
+        <div class="faq-a">Just send content to a WhatsApp number — photos, videos, voice notes, or text ideas. That's it. No logins, no dashboards, no scheduling. The agents handle everything from there.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How long does setup take? <span class="icon">+</span></button>
+        <div class="faq-a">About one week. We configure the agents, connect your Instagram and TikTok accounts, set up your WhatsApp inbox, and run a supervised test post before going live. Most clients are posting within 7 days of paying.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">We already have someone doing our socials. <span class="icon">+</span></button>
+        <div class="faq-a">This works alongside them. They'd spend less time on admin and scheduling, and more on strategy and creative direction. Think of the agents as their execution layer.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What if my team doesn't send much content? <span class="icon">+</span></button>
+        <div class="faq-a">That's exactly why this exists. Most of our clients were posting once a fortnight because nobody had time to sit down and do it. Once staff can just fire off a WhatsApp between clients, content starts flowing naturally. We typically see businesses go from 2 posts a month to 3–4 posts a week.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is there a monthly fee? <span class="icon">+</span></button>
+        <div class="faq-a">No. It's a one-time setup fee. After your support period ends, you own the system. Optional ongoing maintenance retainers are available from $300/month for agent updates and optimisation — but not required.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="footer-cta">
+  <div class="footer-cta-inner">
+    <h2>Stop losing content to<br><em>the camera roll.</em></h2>
+    <p>Setup takes one week. Your team won't notice a thing — except that the feed is actually posting.</p>
+    <a href="mailto:hello@kaspr.com.au" class="footer-cta-btn">Book a free 20-min call</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">kaspr</div>
+  <div class="footer-links">
+    <a href="mailto:hello@kaspr.com.au">hello@kaspr.com.au</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="#" onclick="showPage('privacy');return false;">Privacy Policy</a>
+    <a href="#" onclick="showPage('terms');return false;">Terms of Service</a>
+  </div>
+  <p class="footer-copy">© 2026 Kaspr. Part of the NorthWorld portfolio.</p>
 </footer>
 
+</div><!-- /main-site -->
+
+<!-- PRIVACY POLICY PAGE -->
+<div class="legal-page" id="privacy-page">
+  <div class="legal-inner">
+    <a href="#" class="legal-back" onclick="showPage('main');return false;">← Back to kaspr.com.au</a>
+    <h1>Privacy Policy</h1>
+    <p class="legal-date">Last updated: April 2026</p>
+
+    <h2>1. Who we are</h2>
+    <p>Kaspr is a social media automation service operated by NorthWorld (ABN available on request), based in New South Wales, Australia. We can be contacted at hello@kaspr.com.au.</p>
+
+    <h2>2. What information we collect</h2>
+    <p>We collect information you provide directly when you engage our services, including:</p>
+    <ul>
+      <li>Your name, business name, and contact details (email, phone number)</li>
+      <li>Your WhatsApp number and those of your authorised staff</li>
+      <li>Content your team sends via WhatsApp (photos, videos, text, voice notes)</li>
+      <li>Your Instagram and TikTok account credentials (stored securely, never shared)</li>
+      <li>Business information including your niche and brand voice preferences</li>
+    </ul>
+
+    <h2>3. How we use your information</h2>
+    <p>We use your information solely to provide the Kaspr automation service, including:</p>
+    <ul>
+      <li>Processing and storing content submitted via WhatsApp</li>
+      <li>Generating captions and scheduling posts to your social media accounts</li>
+      <li>Sending you WhatsApp notifications and previews</li>
+      <li>Providing support during your onboarding period</li>
+    </ul>
+    <p>We do not sell your data to third parties. We do not use your content to train AI models.</p>
+
+    <h2>4. Where your data is stored</h2>
+    <p>Your data is stored on Supabase infrastructure located in the Sydney, Australia region (ap-southeast-2), in compliance with the Australian Privacy Act 1988.</p>
+
+    <h2>5. Third-party services</h2>
+    <p>To provide our service we use the following third-party platforms:</p>
+    <ul>
+      <li>Twilio — for WhatsApp message delivery</li>
+      <li>Supabase — for data and media storage</li>
+      <li>Anthropic — for AI caption generation (content is processed but not retained for training)</li>
+      <li>Meta (Instagram Graph API) — for Instagram posting</li>
+      <li>TikTok (Content Posting API) — for TikTok posting</li>
+    </ul>
+
+    <h2>6. Data retention</h2>
+    <p>We retain your data for the duration of your service agreement plus 12 months. Media files (photos and videos) are archived and never deleted without your request. You may request deletion of your data at any time by emailing hello@kaspr.com.au.</p>
+
+    <h2>7. Your rights</h2>
+    <p>Under the Australian Privacy Act, you have the right to access, correct, or request deletion of your personal information. To exercise these rights, contact us at hello@kaspr.com.au.</p>
+
+    <h2>8. Contact</h2>
+    <p>For any privacy concerns, contact us at hello@kaspr.com.au. We aim to respond within 5 business days.</p>
+  </div>
+</div>
+
+<!-- TERMS OF SERVICE PAGE -->
+<div class="legal-page" id="terms-page">
+  <div class="legal-inner">
+    <a href="#" class="legal-back" onclick="showPage('main');return false;">← Back to kaspr.com.au</a>
+    <h1>Terms of Service</h1>
+    <p class="legal-date">Last updated: April 2026</p>
+
+    <h2>1. Agreement</h2>
+    <p>By engaging Kaspr's services, you agree to these Terms of Service. These terms govern your use of the Kaspr social media automation system operated by NorthWorld, NSW, Australia (hello@kaspr.com.au).</p>
+
+    <h2>2. Services provided</h2>
+    <p>Kaspr provides a done-for-you social media automation system that receives content via WhatsApp, generates captions using AI, and schedules posts to Instagram and TikTok on your behalf. The specific scope of services is agreed at the time of purchase.</p>
+
+    <h2>3. Payment terms</h2>
+    <p>All fees are charged as a one-time setup fee, payable in full prior to commencement of work. Fees are quoted in Australian dollars (AUD) and are inclusive of GST where applicable. No refunds are provided after work has commenced unless agreed in writing.</p>
+
+    <h2>4. Your responsibilities</h2>
+    <p>You agree to:</p>
+    <ul>
+      <li>Provide accurate business information and social media access credentials</li>
+      <li>Ensure content submitted via WhatsApp complies with Meta and TikTok community guidelines</li>
+      <li>Not submit content that is defamatory, illegal, or infringes third-party intellectual property</li>
+      <li>Maintain valid Instagram and TikTok accounts in good standing</li>
+      <li>Notify us promptly if your social media passwords or access tokens change</li>
+    </ul>
+
+    <h2>5. Content ownership</h2>
+    <p>You retain full ownership of all content submitted to Kaspr. By submitting content, you grant Kaspr a limited licence to process and post that content on your behalf. We will not use your content for any purpose other than delivering our service.</p>
+
+    <h2>6. Limitations of liability</h2>
+    <p>Kaspr is not liable for: temporary unavailability of Instagram or TikTok APIs; changes to third-party platform policies that affect posting functionality; engagement metrics or business outcomes resulting from posted content. Our total liability is limited to the fees paid for the relevant service period.</p>
+
+    <h2>7. Account access</h2>
+    <p>You authorise Kaspr to access your Instagram and TikTok accounts solely for the purpose of scheduling and publishing content on your behalf. We will not post content that has not been queued through the Kaspr system. Access credentials are stored securely and never shared with third parties.</p>
+
+    <h2>8. Termination</h2>
+    <p>Either party may terminate the service agreement with 14 days written notice. Upon termination, we will cease posting and delete your credentials from our systems within 7 business days. Content already posted to your social media accounts will not be removed.</p>
+
+    <h2>9. Governing law</h2>
+    <p>These terms are governed by the laws of New South Wales, Australia. Any disputes will be resolved in the courts of New South Wales.</p>
+
+    <h2>10. Contact</h2>
+    <p>For any questions regarding these terms, contact us at hello@kaspr.com.au.</p>
+  </div>
+</div>
+
+<script>
+const cursor = document.getElementById('cursor');
+document.addEventListener('mousemove', e => { cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; });
+document.querySelectorAll('a, button, .step, .vertical, .price-card').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+  el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+});
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => { btn.parentElement.classList.toggle('open'); });
+});
+
+function showPage(page) {
+  document.getElementById('main-site').style.display = page === 'main' ? 'block' : 'none';
+  document.getElementById('privacy-page').classList.toggle('active', page === 'privacy');
+  document.getElementById('terms-page').classList.toggle('active', page === 'terms');
+  window.scrollTo(0, 0);
+}
+
+const hash = window.location.hash;
+if (hash === '#privacy') showPage('privacy');
+if (hash === '#terms') showPage('terms');
+</script>
 </body>
 </html>
