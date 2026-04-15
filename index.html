@@ -27,8 +27,8 @@
 html { scroll-behavior: smooth; }
 body { font-family: var(--sans); background: var(--off-white); color: var(--black); overflow-x: hidden; cursor: none; }
 
-.cursor { position: fixed; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: transform 0.1s, width 0.3s, height 0.3s; mix-blend-mode: multiply; }
-.cursor.hover { width: 40px; height: 40px; opacity: 0.4; }
+.cursor { position: fixed; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: transform 0.1s, width 0.3s, height 0.3s; box-shadow: 0 0 0 1.5px rgba(255,255,255,0.45); }
+.cursor.hover { width: 40px; height: 40px; opacity: 0.5; box-shadow: 0 0 0 1.5px rgba(255,255,255,0.3); }
 
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; }
 .nav-logo { font-family: var(--sans); font-size: 18px; font-weight: 800; letter-spacing: -0.02em; color: var(--off-white); text-decoration: none; }
