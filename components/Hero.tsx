@@ -123,9 +123,9 @@ export function Hero() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_60%_-10%,rgba(242,105,75,0.18),transparent)] pointer-events-none z-0" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_0%_80%,rgba(168,184,156,0.08),transparent)] pointer-events-none z-0" />
 
-      {/* Content */}
-      <div className="relative z-10 flex-1 flex flex-col justify-end max-w-6xl mx-auto w-full px-6 md:px-10 pt-32 pb-14 md:pb-20">
-        {/* Top: eyebrow + heading */}
+      {/* Content — sits in normal flow, always above the phone (z-20) */}
+      <div className="relative z-20 flex-1 flex flex-col justify-end max-w-6xl mx-auto w-full px-6 md:px-10 pt-32 pb-14 md:pb-20">
+        {/* Eyebrow + heading */}
         <div className="mb-12">
           <p className="text-2xs font-bold uppercase tracking-[0.2em] text-coral mb-8 opacity-0 animate-[fade-up_0.6s_0.2s_ease_forwards]">
             Social media automation · Built for Australian beauty &amp; wellness
@@ -141,51 +141,47 @@ export function Hero() {
           </h1>
         </div>
 
-        {/* Bottom: subhead + CTA + phone mockup */}
-        <div
-          className="flex flex-col md:flex-row md:items-end gap-10 md:gap-16 opacity-0 animate-[fade-up_0.7s_0.65s_ease_forwards]"
-        >
-          <div className="flex-1 max-w-sm">
-            <p className="text-base text-cream/55 leading-relaxed mb-8">
-              Your DMs answered. Your feed filled. While you&apos;re on the
-              floor.
-            </p>
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <a
-                href="#how-it-works"
-                className="inline-flex items-center gap-2 bg-coral text-white text-sm font-bold px-7 py-3.5 rounded-full hover:bg-coral-dark transition-colors"
+        {/* Subhead + CTA — constrained to left half so the phone never overlaps */}
+        <div className="max-w-sm opacity-0 animate-[fade-up_0.7s_0.65s_ease_forwards]">
+          <p className="text-base text-cream/55 leading-relaxed mb-8">
+            Your DMs answered. Your feed filled. While you&apos;re on the
+            floor.
+          </p>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <a
+              href="#how-it-works"
+              className="inline-flex items-center gap-2 bg-coral text-white text-sm font-bold px-7 py-3.5 rounded-full hover:bg-coral-dark transition-colors"
+            >
+              See how it works
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                aria-hidden
               >
-                See how it works
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 14 14"
-                  fill="none"
-                  aria-hidden
-                >
-                  <path
-                    d="M2 7h10M8 3l4 4-4 4"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </a>
-              <Link
-                href="#pricing"
-                className="text-sm font-medium text-cream/40 hover:text-cream/70 transition-colors"
-              >
-                See pricing ↓
-              </Link>
-            </div>
-          </div>
-
-          {/* Phone mockup — hidden on small screens */}
-          <div className="hidden lg:flex justify-end">
-            <PhoneMockup />
+                <path
+                  d="M2 7h10M8 3l4 4-4 4"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </a>
+            <Link
+              href="#pricing"
+              className="text-sm font-medium text-cream/40 hover:text-cream/70 transition-colors"
+            >
+              See pricing ↓
+            </Link>
           </div>
         </div>
+      </div>
+
+      {/* Phone mockup — absolutely positioned on the right at lg+, hidden below */}
+      <div className="hidden lg:block absolute right-10 xl:right-20 bottom-20 z-10 opacity-0 animate-[fade-up_0.8s_0.9s_ease_forwards]">
+        <PhoneMockup />
       </div>
 
       {/* Organic curve into next section */}
