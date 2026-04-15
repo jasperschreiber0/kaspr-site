@@ -89,7 +89,9 @@ export function HowItWorks() {
         <Reveal>
           <div className="mt-12 text-center">
             <a
-              href="mailto:contact@kaspr.com.au"
+              href="https://calendly.com/jasperschreiber0/new-meeting"
+            target="_blank"
+            rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-coral text-white text-sm font-bold px-8 py-4 rounded-full hover:bg-coral-dark transition-colors"
             >
               Start with a free audit

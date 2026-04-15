@@ -87,7 +87,9 @@ export function Features() {
                 Ready to see it in action?
               </p>
               <a
-                href="mailto:contact@kaspr.com.au"
+                href="https://calendly.com/jasperschreiber0/new-meeting"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 mt-6 text-sm font-bold text-coral bg-white px-5 py-3 rounded-full self-start hover:bg-cream transition-colors"
               >
                 Book a free call

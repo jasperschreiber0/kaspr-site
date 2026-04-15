@@ -160,7 +160,9 @@ export function Pricing() {
 
                 {/* CTA */}
                 <a
-                  href="mailto:contact@kaspr.com.au"
+                  href="https://calendly.com/jasperschreiber0/new-meeting"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`block text-center text-sm font-bold py-3.5 rounded-full transition-colors mt-2 ${
                     plan.featured
                       ? "bg-coral text-white hover:bg-coral-dark"
