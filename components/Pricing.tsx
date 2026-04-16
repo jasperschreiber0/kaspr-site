@@ -4,32 +4,31 @@ const PLANS = [
   {
     name: "Starter",
     price: "$1,500",
-    note: "one-time · 30-day support",
+    monthly: "$297",
+    note: "setup · then $297/mo",
     desc: "One platform. Stop letting enquiries die in your notifications.",
     features: [
-      "DM auto-reply setup (Instagram or TikTok)",
+      "DM auto-reply (Instagram or TikTok)",
+      "Follow-up sequences",
+      "Brand voice setup",
       "Pricing, availability & booking scripts",
-      "Brand voice onboarding session",
-      "10 custom reply templates",
-      "30-day onboarding support",
-      "Handover guide for your team",
+      "Onboarding support",
     ],
     cta: "Get started",
     featured: false,
   },
   {
     name: "Growth",
-    price: "$4,000",
-    note: "one-time · 60-day support",
-    desc: "Both platforms, follow-up flows, content scheduling. Full autopilot.",
+    price: "$3,500",
+    monthly: "$597",
+    note: "setup · then $597/mo",
+    desc: "Instagram + TikTok. Full pipeline, from first comment to booked appointment.",
     features: [
       "Everything in Starter",
       "Instagram + TikTok",
       "Comment-to-DM lead capture",
-      "Follow-up sequences (3 touchpoints)",
-      "Content scheduling setup",
-      "Monthly performance summary",
-      "60-day support + 1 tune-up session",
+      "Follow-up sequences",
+      "Content scheduling",
     ],
     cta: "Get started",
     featured: true,
@@ -37,17 +36,16 @@ const PLANS = [
   },
   {
     name: "Scale",
-    price: "$9,500",
-    note: "one-time · 90-day support",
-    desc: "Full done-for-you. Ongoing agent management and monthly reporting.",
+    price: "$7,500",
+    monthly: "$997",
+    note: "setup · then $997/mo",
+    desc: "Full done-for-you. Both platforms, bookings handled, reporting included.",
     features: [
       "Everything in Growth",
-      "Appointment booking from DM",
+      "Appointment booking from DMs",
       "Calendar integration",
-      "Multi-location support",
       "Ongoing agent management",
-      "Monthly strategy + reporting call",
-      "90-day support + 3 tune-up sessions",
+      "Monthly reporting call",
     ],
     cta: "Talk to us",
     featured: false,
@@ -61,12 +59,12 @@ export function Pricing() {
         <Reveal>
           <p className="section-tag mb-5">Pricing</p>
           <h2 className="font-serif text-display-sm text-espresso leading-tight mb-4 max-w-xl">
-            One setup fee.{" "}
-            <em className="italic text-coral">No monthly subscription.</em>
+            Setup once.{" "}
+            <em className="italic text-coral">We manage it every day.</em>
           </h2>
           <p className="text-base text-mid leading-relaxed max-w-md mb-14">
-            You own the system after setup. There&apos;s no lock-in, no
-            platform fees, and no surprises. All prices in AUD.
+            Your agents run 24/7. The monthly fee covers ongoing management,
+            monitoring, and support. No lock-in. All prices in AUD.
           </p>
         </Reveal>
 
@@ -178,14 +176,15 @@ export function Pricing() {
 
         <Reveal>
           <p className="text-center text-sm text-mid mt-8">
-            Not sure which plan fits?{" "}
+            Ask us about the Growth Pack — ReActivate and ReviewRunner —
+            available as an add-on for existing clients.{" "}
             <a
               href="mailto:contact@kaspr.com.au"
               className="text-coral underline underline-offset-2 hover:text-coral-dark"
             >
-              Drop us a message
-            </a>{" "}
-            and we&apos;ll work it out together.
+              Get in touch
+            </a>
+            .
           </p>
         </Reveal>
       </div>
