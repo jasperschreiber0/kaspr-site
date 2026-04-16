@@ -26,7 +26,9 @@ export function MobileCTA() {
           <p className="text-[11px] text-cream/40">Free 30-min call</p>
         </div>
         <a
-          href="mailto:contact@kaspr.com.au"
+          href="https://calendly.com/jasperschreiber0/new-meeting"
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex-shrink-0 bg-coral text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-coral-dark transition-colors"
         >
           Book a free call →

@@ -47,8 +47,8 @@ export function SocialProof() {
             <em className="italic text-coral">actually using it.</em>
           </h2>
           <p className="text-base text-mid leading-relaxed max-w-md mb-14">
-            These are placeholder testimonials from persona-matched business
-            owners. Actual client results will be added here.
+            From nail studios to pilates teachers — here&apos;s what happens
+            when enquiries stop slipping through.
           </p>
         </Reveal>
 
