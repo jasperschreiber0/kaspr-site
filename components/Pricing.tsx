@@ -46,10 +46,19 @@ const PLANS = [
       "Calendar integration",
       "Ongoing agent management",
       "Monthly reporting call",
+      "Retention Pack included",
     ],
     cta: "Talk to us",
     featured: false,
   },
+];
+
+const RETENTION_FEATURES = [
+  "ReActivate — auto re-engage clients who haven't booked in 30 days",
+  "ReviewRunner — WhatsApp review request 2 hours after every visit",
+  "Smart sequencing — thank-you message if they've already reviewed",
+  "Opt-out compliance built in",
+  "Review click tracking per client",
 ];
 
 export function Pricing() {
@@ -78,7 +87,6 @@ export function Pricing() {
                     : "bg-white border border-border shadow-card hover:shadow-card-hover"
                 }`}
               >
-                {/* Most popular pill */}
                 {plan.pill && (
                   <div className="absolute -top-3.5 left-8">
                     <span className="bg-coral text-white text-[11px] font-bold uppercase tracking-[0.14em] px-3.5 py-1.5 rounded-full">
@@ -87,7 +95,6 @@ export function Pricing() {
                   </div>
                 )}
 
-                {/* Plan name */}
                 <div>
                   <p
                     className={`text-2xs font-bold uppercase tracking-[0.18em] mb-4 ${
@@ -126,7 +133,6 @@ export function Pricing() {
                   </p>
                 </div>
 
-                {/* Feature list */}
                 <ul className="flex-1 space-y-3">
                   {plan.features.map((f) => (
                     <li
@@ -156,7 +162,6 @@ export function Pricing() {
                   ))}
                 </ul>
 
-                {/* CTA */}
                 <a
                   href="https://calendly.com/jasperschreiber0/new-meeting"
                   target="_blank"
@@ -174,18 +179,82 @@ export function Pricing() {
           ))}
         </div>
 
+        {/* Retention Pack Add-on */}
         <Reveal>
-          <p className="text-center text-sm text-mid mt-8">
-            Ask us about the Growth Pack — ReActivate and ReviewRunner —
-            available as an add-on for existing clients.{" "}
-            <a
-              href="mailto:contact@kaspr.com.au"
-              className="text-coral underline underline-offset-2 hover:text-coral-dark"
-            >
-              Get in touch
-            </a>
-            .
-          </p>
+          <div className="mt-10 rounded-2xl border border-border bg-white shadow-card p-8">
+            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-4">
+                  <p className="text-2xs font-bold uppercase tracking-[0.18em] text-coral">
+                    Add-on
+                  </p>
+                  <span className="bg-coral/10 text-coral text-[11px] font-bold uppercase tracking-[0.12em] px-3 py-1 rounded-full">
+                    Starter &amp; Growth
+                  </span>
+                  <span className="bg-espresso/8 text-espresso text-[11px] font-bold uppercase tracking-[0.12em] px-3 py-1 rounded-full">
+                    Included in Scale
+                  </span>
+                </div>
+                <h3 className="font-serif text-2xl text-espresso mb-2">
+                  Retention Pack
+                </h3>
+                <p className="text-sm text-mid leading-relaxed max-w-lg">
+                  Keep clients coming back and your reviews growing — automatically. ReActivate wins back lapsed clients. ReviewRunner turns every completed visit into a Google review.
+                </p>
+                <ul className="mt-5 space-y-2.5">
+                  {RETENTION_FEATURES.map((f) => (
+                    <li
+                      key={f}
+                      className="flex items-start gap-3 text-[13.5px] text-espresso/75"
+                    >
+                      <svg
+                        className="flex-shrink-0 mt-0.5"
+                        width="14"
+                        height="14"
+                        viewBox="0 0 14 14"
+                        fill="none"
+                        aria-hidden
+                      >
+                        <path
+                          d="M2.5 7L5.5 10L11.5 4"
+                          stroke="#F2694B"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="flex flex-col gap-4 md:min-w-[200px]">
+                <div className="text-right">
+                  <p className="font-serif text-[48px] leading-none text-espresso">$2,000</p>
+                  <p className="text-sm text-mid">setup</p>
+                  <p className="font-serif text-[32px] leading-none text-espresso mt-3">$300<span className="text-lg">/mo</span></p>
+                  <p className="text-sm text-mid">ongoing</p>
+                </div>
+                <a
+                  href="https://buy.stripe.com/6oU28r2qU4kf7zOeFE1kA06"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-center text-sm font-bold py-3.5 rounded-full bg-coral text-white hover:bg-coral-dark transition-colors"
+                >
+                  Get setup →
+                </a>
+                <a
+                  href="https://buy.stripe.com/6oU8wP2qUeYT8DS4101kA07"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-center text-sm font-bold py-3.5 rounded-full border-2 border-espresso text-espresso hover:bg-espresso hover:text-cream transition-colors"
+                >
+                  Monthly only →
+                </a>
+              </div>
+            </div>
+          </div>
         </Reveal>
       </div>
     </section>
