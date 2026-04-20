@@ -236,21 +236,14 @@ export function Pricing() {
                   <p className="font-serif text-[32px] leading-none text-espresso mt-3">$300<span className="text-lg">/mo</span></p>
                   <p className="text-sm text-mid">ongoing</p>
                 </div>
+                
                 <a
                   href="https://buy.stripe.com/6oU28r2qU4kf7zOeFE1kA06"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block text-center text-sm font-bold py-3.5 rounded-full bg-coral text-white hover:bg-coral-dark transition-colors"
                 >
-                  Get setup →
-                </a>
-                <a
-                  href="https://buy.stripe.com/6oU8wP2qUeYT8DS4101kA07"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block text-center text-sm font-bold py-3.5 rounded-full border-2 border-espresso text-espresso hover:bg-espresso hover:text-cream transition-colors"
-                >
-                  Monthly only →
+                  Get started ?
                 </a>
               </div>
             </div>
