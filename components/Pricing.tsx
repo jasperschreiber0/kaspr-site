@@ -77,9 +77,9 @@ export function Pricing() {
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch">
           {PLANS.map((plan, i) => (
-            <Reveal key={plan.name} delay={i * 80}>
+            <Reveal key={plan.name} delay={i * 80} className="h-full">
               <div
                 className={`relative rounded-2xl p-8 flex flex-col gap-6 h-full transition-all duration-300 hover:-translate-y-1 ${
                   plan.featured
