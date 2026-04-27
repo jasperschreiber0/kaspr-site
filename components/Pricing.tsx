@@ -10,11 +10,11 @@ const PLANS = [
     monthlyFounding: "$148",
     features: [
       "ReActivate — lapsed client recovery via WhatsApp",
+      "ReviewRunner — Google reviews on autopilot",
       "Missed-call SMS auto-reply (under 10 seconds)",
       "30 / 60 / 90-day wake-up sequences",
       "Opt-out + compliance handling built in",
       "Revenue attribution dashboard",
-      "Month-one recovery report",
     ],
     cta: "Start Revive",
     featured: false,
@@ -29,7 +29,6 @@ const PLANS = [
     monthlyFounding: "$298",
     features: [
       "Everything in Revive",
-      "ReviewRunner — Google reviews on autopilot",
       "Instagram + TikTok daily posting",
       "Comment-to-DM lead capture",
       "DM auto-reply with booking intent routing",
@@ -48,6 +47,7 @@ const PLANS = [
     monthlyFounding: "$498",
     features: [
       "Everything in Revive + Grow",
+      "AI content generation — images & reels",
       "Appointment booking directly from DMs",
       "Calendar integration (Fresha, Timely, etc.)",
       "Ongoing agent management & tuning",
@@ -60,7 +60,7 @@ const PLANS = [
 ];
 
 // Update this manually as Founding spots close.
-const FOUNDING_SPOTS_REMAINING = 10;
+const FOUNDING_SPOTS_REMAINING = 1;
 const FOUNDING_SPOTS_TOTAL = 10;
 
 export function Pricing() {
@@ -238,34 +238,6 @@ export function Pricing() {
             </Reveal>
           ))}
         </div>
-
-       {/* Content Pack — waitlist */}
-<Reveal>
-  <div className="mt-10 rounded-2xl border border-dashed border-coral bg-coral/5 p-6 md:p-7 flex flex-col md:flex-row items-start md:items-center gap-6">
-    <div className="flex items-baseline gap-2 shrink-0">
-      <span className="font-serif text-[56px] leading-none text-coral">1</span>
-      <span className="text-mid text-lg">/ 10</span>
-    </div>
-    <div className="flex-1">
-      <p className="text-2xs font-bold uppercase tracking-[0.18em] text-coral mb-1.5">
-        Content Pack — Pilot Waitlist
-      </p>
-      <h3 className="font-serif text-xl md:text-2xl text-espresso mb-1.5">
-        AI-generated imagery & reels. One studio gets in first.
-      </h3>
-      <p className="text-sm text-mid leading-relaxed">
-        We're piloting with a single studio before opening enrolment. Join the waitlist to be first in line.
-      </p>
-    </div>
-    
-      <a href="mailto:hello@kaspr.com.au?subject=Content%20Pack%20waitlist"
-      className="block text-center text-sm font-bold py-3.5 px-7 rounded-full border-2 border-espresso text-espresso hover:bg-espresso hover:text-cream transition-colors whitespace-nowrap"
-    >
-      Join waitlist
-    </a>
-  </div>
-</Reveal>
-
         {/* Guarantee line */}
         <Reveal>
           <p className="text-center text-sm text-mid mt-10 max-w-2xl mx-auto">
