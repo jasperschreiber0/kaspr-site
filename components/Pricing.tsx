@@ -239,29 +239,32 @@ export function Pricing() {
           ))}
         </div>
 
-        {/* Content Pack — parked, waitlist */}
-        <Reveal>
-          <div className="mt-10 rounded-2xl border border-border bg-white/60 p-7 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
-            <div className="flex-1">
-              <p className="text-2xs font-bold uppercase tracking-[0.18em] text-mid mb-2">
-                Coming soon · in pilot
-              </p>
-              <h3 className="font-serif text-xl md:text-2xl text-espresso mb-1.5">
-                Content Pack — AI-augmented imagery &amp; reels
-              </h3>
-              <p className="text-sm text-mid leading-relaxed max-w-xl">
-                We're piloting with a single studio before opening enrolment.
-                If you'd like to be first in line, join the waitlist.
-              </p>
-            </div>
-            <a
-              href="mailto:hello@kaspr.com.au?subject=Content%20Pack%20waitlist"
-              className="block text-center text-sm font-bold py-3.5 px-7 rounded-full border-2 border-espresso text-espresso hover:bg-espresso hover:text-cream transition-colors whitespace-nowrap"
-            >
-              Join waitlist
-            </a>
-          </div>
-        </Reveal>
+       {/* Content Pack — waitlist */}
+<Reveal>
+  <div className="mt-10 rounded-2xl border border-dashed border-coral bg-coral/5 p-6 md:p-7 flex flex-col md:flex-row items-start md:items-center gap-6">
+    <div className="flex items-baseline gap-2 shrink-0">
+      <span className="font-serif text-[56px] leading-none text-coral">1</span>
+      <span className="text-mid text-lg">/ 10</span>
+    </div>
+    <div className="flex-1">
+      <p className="text-2xs font-bold uppercase tracking-[0.18em] text-coral mb-1.5">
+        Content Pack — Pilot Waitlist
+      </p>
+      <h3 className="font-serif text-xl md:text-2xl text-espresso mb-1.5">
+        AI-generated imagery & reels. One studio gets in first.
+      </h3>
+      <p className="text-sm text-mid leading-relaxed">
+        We're piloting with a single studio before opening enrolment. Join the waitlist to be first in line.
+      </p>
+    </div>
+    
+      <a href="mailto:hello@kaspr.com.au?subject=Content%20Pack%20waitlist"
+      className="block text-center text-sm font-bold py-3.5 px-7 rounded-full border-2 border-espresso text-espresso hover:bg-espresso hover:text-cream transition-colors whitespace-nowrap"
+    >
+      Join waitlist
+    </a>
+  </div>
+</Reveal>
 
         {/* Guarantee line */}
         <Reveal>
