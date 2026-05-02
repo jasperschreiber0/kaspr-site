@@ -2,8 +2,6 @@
 // Route: /privacy
 // Drop into kaspr-site and add <Route path="/privacy" element={<PrivacyPolicy />} />
 
-import { useEffect } from "react";
-
 const Section = ({ title, children }) => (
   <div className="mb-10">
     <h2 className="text-lg font-semibold text-stone-900 mb-3 pb-2 border-b border-stone-200">
