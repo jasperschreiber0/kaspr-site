@@ -15,12 +15,14 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 
 export default function TermsOfService() {
   return (
-   <div className="max-w-3xl mx-auto px-6 py-12">
-  <img src="/kaspr-icon.png" alt="Kaspr" className="w-12 h-12 rounded-xl mb-6" />
-  <p className="text-xs uppercase tracking-widest text-rose-500 font-medium mb-3">Legal</p>
-  <h1 className="text-3xl font-bold text-stone-900 mb-2">Terms of Service</h1>
-  <p className="text-stone-500 text-sm">Last updated: 1 May 2026 · Kaspr Pty Ltd</p>
-</div>
+    <div className="min-h-screen bg-stone-50">
+      <div className="bg-white border-b border-stone-200">
+        <div className="max-w-3xl mx-auto px-6 py-12">
+          <img src="/kaspr-icon.png" alt="Kaspr" className="w-12 h-12 rounded-xl mb-6" />
+          <p className="text-xs uppercase tracking-widest text-rose-500 font-medium mb-3">Legal</p>
+          <h1 className="text-3xl font-bold text-stone-900 mb-2">Terms of Service</h1>
+          <p className="text-stone-500 text-sm">Last updated: 1 May 2026 · Kaspr Pty Ltd</p>
+        </div>
       </div>
       <div className="max-w-3xl mx-auto px-6 py-12">
         <div className="bg-white rounded-2xl border border-stone-200 p-8 md:p-12">
