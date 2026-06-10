@@ -16,7 +16,11 @@ function DMBubble({
       style={{ animationDelay: delay }}
     >
       {!isKaspr && (
-        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 flex-shrink-0 mr-2 mt-1" />
+        <div className="w-6 h-6 rounded-full bg-sage flex items-center justify-center flex-shrink-0 mr-2 mt-1 ring-1 ring-white/20">
+          <span className="font-serif italic text-[11px] leading-none text-espresso">
+            J
+          </span>
+        </div>
       )}
       <div
         className={`max-w-[80%] rounded-2xl px-3.5 py-2.5 text-[12px] leading-relaxed ${
@@ -62,7 +66,13 @@ function PhoneMockup() {
 
         {/* Instagram DM header */}
         <div className="bg-espresso-light px-4 py-2.5 flex items-center gap-2.5 border-b border-white/8">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-fuchsia-400 via-pink-400 to-orange-400" />
+          <div className="relative w-8 h-8 rounded-full bg-sage flex items-center justify-center ring-1 ring-white/15">
+            <span className="font-serif italic text-[15px] leading-none text-espresso">
+              J
+            </span>
+            {/* active dot */}
+            <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-coral border-2 border-espresso-light" />
+          </div>
           <div>
             <p className="text-[13px] font-semibold text-white">Jade Wilson</p>
             <p className="text-[11px] text-white/40">Active now</p>
