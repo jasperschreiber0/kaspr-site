@@ -12,8 +12,7 @@ export function FooterCTA() {
             Let&apos;s talk
           </p>
           <h2 className="font-serif text-display-md text-white leading-tight mb-5">
-            Stop losing clients to{" "}
-            <em className="italic text-white/70">an empty inbox.</em>
+            Stop losing clients to an empty inbox.
           </h2>
           <p className="text-base text-white/65 leading-relaxed mb-10 max-w-md mx-auto">
             A 30-minute call to audit your current setup and show you exactly

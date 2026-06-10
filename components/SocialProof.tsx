@@ -31,8 +31,7 @@ export function SocialProof() {
         <Reveal>
           <p className="section-tag mb-5">Straight up</p>
           <h2 className="font-serif text-display-sm text-espresso leading-tight mb-4 max-w-xl">
-            No fake reviews here —{" "}
-            <em className="italic text-coral">just the honest deal.</em>
+            No fake reviews here. Just the honest deal.
           </h2>
           <p className="text-base text-mid leading-relaxed max-w-md mb-14">
             Kaspr is new, and we&apos;re not going to pad this page with
@@ -47,7 +46,7 @@ export function SocialProof() {
           {SCENARIOS.map((s) => (
             <div
               key={s.title}
-              className="bg-white border border-border rounded-2xl p-7 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 flex flex-col gap-4"
+              className="bg-white border border-border rounded-2xl p-7 shadow-card flex flex-col gap-4"
             >
               <p className="text-2xs font-bold uppercase tracking-[0.18em] text-coral">
                 {s.label}

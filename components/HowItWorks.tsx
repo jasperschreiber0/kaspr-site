@@ -31,8 +31,7 @@ export function HowItWorks() {
         <Reveal>
           <p className="section-tag mb-5">How it works</p>
           <h2 className="font-serif text-display-sm text-espresso leading-tight mb-4 max-w-xl">
-            Three steps.{" "}
-            <em className="italic text-coral">None of them are yours.</em>
+            Three steps. None of them are yours.
           </h2>
           <p className="text-base text-mid leading-relaxed max-w-md mb-14">
             We do the setup. You approve it. Then it runs.
@@ -42,7 +41,7 @@ export function HowItWorks() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {STEPS.map((step, i) => (
             <Reveal key={step.num} delay={i * 80}>
-              <div className="group relative bg-white border border-border rounded-2xl p-8 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
+              <div className="group relative bg-white border border-border rounded-2xl p-8 shadow-card h-full flex flex-col">
                 {/* Step number */}
                 <div className="font-serif text-[72px] leading-none text-border mb-6 group-hover:text-coral/20 transition-colors duration-300">
                   {step.num}
@@ -72,14 +71,6 @@ export function HowItWorks() {
                   </p>
                 </div>
 
-                {/* Connector arrow — visible on desktop */}
-                {i < STEPS.length - 1 && (
-                  <div className="hidden md:flex absolute -right-3 top-1/2 -translate-y-1/2 z-10 w-6 h-6 rounded-full bg-coral items-center justify-center shadow-md">
-                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden>
-                      <path d="M2 5h6M5 2l3 3-3 3" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </div>
-                )}
               </div>
             </Reveal>
           ))}

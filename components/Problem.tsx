@@ -71,7 +71,24 @@ export function Problem() {
           <p className="section-tag mb-5">Sound familiar?</p>
           <h2 className="font-serif text-display-sm text-espresso leading-tight mb-4 max-w-lg">
             Running a full book shouldn&rsquo;t mean{" "}
-            <em className="italic text-coral">running behind.</em>
+            <span className="relative inline-block">
+              running behind.
+              {/* hand-drawn underline */}
+              <svg
+                className="absolute -bottom-1.5 left-0 w-full h-[9px]"
+                viewBox="0 0 200 9"
+                fill="none"
+                preserveAspectRatio="none"
+                aria-hidden
+              >
+                <path
+                  d="M2 7C42 2.5 118 1.5 198 5.5"
+                  stroke="#F2694B"
+                  strokeWidth="3.5"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </span>
           </h2>
           <p className="text-base text-mid leading-relaxed max-w-md mb-14">
             You&apos;re brilliant at your craft. The problem is everything that

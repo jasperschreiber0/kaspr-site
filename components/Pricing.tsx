@@ -71,8 +71,7 @@ export function Pricing() {
         <Reveal>
           <p className="section-tag mb-5">Pricing</p>
           <h2 className="font-serif text-display-sm text-espresso leading-tight mb-4 max-w-2xl">
-            Recover the revenue{" "}
-            <em className="italic text-coral">you're quietly losing.</em>
+            Recover the revenue you&rsquo;re quietly losing.
           </h2>
           <p className="text-base text-mid leading-relaxed max-w-xl mb-12">
             Most studios lose 20–30% of their clients every quarter to
