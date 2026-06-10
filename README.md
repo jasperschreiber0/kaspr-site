@@ -44,9 +44,9 @@ components/
   Marquee.tsx       — Scrolling ICP ticker
   Problem.tsx       — Three pain-point cards ("Sound familiar?")
   Features.tsx      — Five feature tiles on dark background
-  SocialProof.tsx   — Testimonial cards + stats row
+  SocialProof.tsx   — Founding-cohort pitch + product-behaviour facts (no testimonials until we have real ones)
   HowItWorks.tsx    — Three-step process
-  Pricing.tsx       — Three pricing tiers ($1,500 / $4,000 / $9,500 AUD)
+  Pricing.tsx       — Three tiers: Revive / Revive + Grow / Full Stack (setup $1,500 / $3,500 / $7,500 + monthly $297 / $597 / $997 AUD)
   FAQ.tsx           — Accordion FAQ
   FooterCTA.tsx     — Coral CTA section
   Footer.tsx        — Links, ABN, social icons

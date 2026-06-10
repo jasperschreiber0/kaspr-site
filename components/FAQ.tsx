@@ -10,19 +10,19 @@ const FAQS = [
   },
   {
     q: "Will it actually sound like me?",
-    a: "Yes. We spend the first week training the reply scripts on your existing content, your tone, and a short voice brief you fill out. You review and approve the first round of replies before anything goes live. Most clients say they can't tell the difference — and neither can their clients.",
+    a: "Yes. We spend the first week training the reply scripts on your existing content, your tone, and a short voice brief you fill out. You review and approve the first round of replies before anything goes live — and we keep tuning until it sounds like you.",
   },
   {
     q: "How long does setup take?",
-    a: "About seven days from when you pay. We run a kick-off call, build the flows, test them, and hand over before going live. You&apos;ll get a walkthrough of everything so you know exactly what&apos;s running.",
+    a: "About seven days from when you pay. We run a kick-off call, build the flows, test them, and hand over before going live. You'll get a walkthrough of everything so you know exactly what's running.",
   },
   {
     q: "What if I want to reply to DMs myself sometimes?",
-    a: "You can jump in any time. Kaspr handles the initial reply and the follow-ups, but if you want to take over a conversation you just reply from your own account and the automation pauses for that thread. It&apos;s not all-or-nothing.",
+    a: "You can jump in any time. Kaspr handles the initial reply and the follow-ups, but if you want to take over a conversation you just reply from your own account and the automation pauses for that thread. It's not all-or-nothing.",
   },
   {
     q: "What platforms does it work on?",
-    a: "Instagram and TikTok. The Starter plan covers one platform, and Growth and Scale cover both. We&apos;re not building for Facebook — that&apos;s not where your clients are.",
+    a: "Instagram and TikTok. Revive is reactivation, reviews and missed-call recovery — no posting. Revive + Grow and Full Stack cover posting on both Instagram and TikTok. We're not building for Facebook — that's not where your clients are.",
   },
 ];
 

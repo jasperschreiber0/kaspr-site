@@ -67,7 +67,7 @@ What Kaspr actually does when someone DMs your salon:
 
 You don't write any of this. We set it up for you.
 
-Most of our clients are live within a week.
+Setup takes about a week from sign-up.
 
 DM us "show me" if you want to see it working. 👇
 
@@ -77,13 +77,13 @@ DM us "show me" if you want to see it working. 👇
 
 If you're a salon, studio, or clinic owner in Australia and you're still answering DMs manually — this one's for you.
 
-Kaspr's Starter plan ($1,500 AUD) gets your Instagram DMs on auto-reply. Booking questions, pricing, availability — all handled.
+Kaspr's Revive plan ($297/mo AUD) brings back clients who've gone quiet — lapsed-client recovery, Google reviews on autopilot, missed-call SMS.
 
-Growth ($4,000 AUD) adds TikTok, follow-up flows, and content scheduling.
+Revive + Grow ($597/mo AUD) adds Instagram + TikTok daily posting and DM auto-reply. Booking questions, pricing, availability — all handled.
 
-Scale ($9,500 AUD) is full done-for-you: we manage everything, you get a monthly report.
+Full Stack ($997/mo AUD) is full done-for-you: we manage everything, you get a monthly report and strategy call.
 
-If you've lost even two bookings this month to slow replies, the Starter plan has already paid for itself.
+If you've lost even two bookings this month to slow replies, Revive + Grow has already paid for itself.
 
 DM us "pricing" and we'll send you the full breakdown.
 

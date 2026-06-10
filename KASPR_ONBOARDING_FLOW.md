@@ -41,7 +41,7 @@ You'll receive a short questionnaire — takes about 10 minutes. This is how we 
 **Within 48 hours**
 We'll review your answers and set up your automations. If we need anything else we'll reach out directly — no back-and-forth forms.
 
-**Day 3–5**
+**Day 5–7**
 Your agents go live. You'll get a confirmation message and your first content preview to approve before anything is posted publicly.
 
 From that point, Kaspr runs in the background. You'll barely notice it — except that your DMs get answered and your feed keeps posting.
@@ -112,7 +112,7 @@ Takes about 10 minutes. Answer as casually as you like.
 **Your platforms**
 
 9. Which platform are we setting up first?
-(Instagram / TikTok / Both — Growth and Scale only)
+(Instagram / TikTok / Both — Revive + Grow and Full Stack only)
 
 10. What's your Instagram handle? What's your TikTok handle?
 
@@ -152,7 +152,7 @@ Once questionnaire is received, review answers and do one of:
 **Option A — Async (most clients)**
 Review their DM examples from Q7. Write 10 custom reply templates in their voice. Send for approval before loading into the agent.
 
-**Option B — 30-minute call (Scale tier or complex brand voice)**
+**Option B — 30-minute call (Full Stack tier or complex brand voice)**
 Book via Calendly. Use this call agenda:
 
 ```

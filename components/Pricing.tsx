@@ -14,7 +14,7 @@ const PLANS = [
       "Missed-call SMS auto-reply (under 10 seconds)",
       "30 / 60 / 90-day wake-up sequences",
       "Opt-out + compliance handling built in",
-      "Revenue attribution dashboard",
+      "Monthly results report — replies, rebookings, opt-outs",
     ],
     cta: "Start Revive",
     featured: false,
@@ -59,8 +59,9 @@ const PLANS = [
   },
 ];
 
-// Update this manually as Founding spots close.
-const FOUNDING_SPOTS_REMAINING = 1;
+// Update this manually as Founding spots close. Must reflect the real
+// number of signed founding clients — false scarcity is an ACL risk.
+const FOUNDING_SPOTS_REMAINING = 10;
 const FOUNDING_SPOTS_TOTAL = 10;
 
 export function Pricing() {
@@ -244,8 +245,8 @@ export function Pricing() {
             <span className="font-semibold text-espresso">
               Founding Clients guarantee:
             </span>{" "}
-            if we don't cover our monthly fee in booked recovery revenue
-            during month one, the next month is on us.
+            if ReActivate doesn't have lapsed clients replying within your
+            first 30 days, your next month is free.
           </p>
         </Reveal>
       </div>

@@ -42,7 +42,7 @@ Required columns (exact names don't matter, just confirm the data exists):
 - Date of last transaction or booking
 - Last service or product purchased
 
-**If they don't have a list:** Ask them to export from their booking system, CRM, or accounting software (Xero, MYOB, Square, etc.). Most can export to CSV. If they're stuck, offer to walk them through it.
+**If they don't have a list:** Ask them to export from their booking system, CRM, or accounting software (Fresha, Timely, Square, Xero, etc.). Most can export to CSV. If they're stuck, offer to walk them through it.
 
 Clean the list before uploading:
 - Remove anyone who has already asked not to be contacted
@@ -55,21 +55,20 @@ Upload to: Supabase → `reactivate_customers` table → client_id = [client slu
 
 ## Step 3 — ReviewRunner Trigger Setup (5 min)
 
-ReviewRunner needs to know when a job is done. Pick the trigger method that matches how the client runs their business:
+ReviewRunner needs to know when an appointment is finished. Pick the trigger method that matches how the client runs their business:
 
 **Option A — Manual batch (simplest)**
-Client sends a WhatsApp message to the Kaspr number at end of each day with customer name + mobile.
-Format: `REVIEW John Smith 0412345678 plumbing`
+Client sends a WhatsApp message to the Kaspr number at end of each day with client name + mobile.
+Format: `REVIEW Sarah Mitchell 0412345678 lashes`
 Agent parses, queues satisfaction check, sends within 2 hours.
 
-**Option B — Invoice paid webhook**
-If client uses Xero or Square, set up a Zapier/Make webhook:
-Trigger: Invoice marked paid → POST to `https://kaspr-reviewrunner.railway.app/trigger`
+**Option B — Payment webhook**
+If client uses Square or Xero, set up a Zapier/Make webhook:
+Trigger: Payment taken / invoice marked paid → POST to `https://kaspr-reviewrunner.railway.app/trigger`
 Payload: `{ customer_name, mobile, service_type, client_id }`
 
-**Option C — WorkA integration (for construction clients)**
-Job status → Complete in WorkA → automatic trigger via existing edge function.
-Enable in WorkA client settings: ReviewRunner = ON.
+**Option C — Booking system webhook**
+If the client's booking system (Fresha, Timely, Square Appointments) can fire a Zapier/Make trigger when an appointment is completed, point it at the same `/trigger` endpoint with the same payload as Option B.
 
 Record chosen method: _______________
 
@@ -83,7 +82,7 @@ Add the following to the Railway service env vars for both agents.
 
 | Variable | Value |
 |---|---|
-| CLIENT_ID | [client slug e.g. smithplumbing] |
+| CLIENT_ID | [client slug e.g. lunanails] |
 | CLIENT_NAME | [business name] |
 | MESSAGE_TONE | casual OR professional |
 | TWILIO_FROM | +61400000000 (Kaspr Twilio number) |
@@ -150,7 +149,7 @@ Both tests passing = green light to upload real customer list.
 **ReviewRunner:**
 - If using manual trigger (Option A): brief client on the WhatsApp format, confirm they've saved the Kaspr number
 - If using webhook (Option B): confirm test trigger fires correctly from their system
-- No batch needed — ReviewRunner fires per job event
+- No batch needed — ReviewRunner fires per appointment event
 
 ---
 
@@ -160,7 +159,7 @@ Tell the client three things:
 
 1. **What to expect from ReActivate:** "Over the next two weeks, lapsed customers will receive up to 3 short messages. If any of them reply, you'll get an alert on Discord / your phone and we'll hand it straight to you. You don't need to do anything."
 
-2. **What to expect from ReviewRunner:** "After each job, your customer gets a quick check-in. Happy customers get prompted to leave a Google review. Unhappy ones come straight to you before anything goes public."
+2. **What to expect from ReviewRunner:** "After each appointment, your client gets a quick check-in. Happy customers get prompted to leave a Google review. Unhappy ones come straight to you before anything goes public."
 
 3. **How to pause or stop:** "If you ever want to pause a sequence or remove a customer, message us. We can suppress anyone within minutes."
 
