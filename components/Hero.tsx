@@ -138,7 +138,7 @@ export function Hero() {
         {/* Eyebrow + heading */}
         <div className="mb-12">
           <p className="text-2xs font-bold uppercase tracking-[0.2em] text-coral mb-8 opacity-0 animate-[fade-up_0.6s_0.2s_ease_forwards]">
-            Social media automation · Built for Australian beauty &amp; wellness
+            Done-for-you social media automation · Australian beauty &amp; wellness
           </p>
           <h1
             className="font-serif text-display-lg text-cream leading-[0.95] tracking-tight opacity-0 animate-[fade-up_0.8s_0.4s_ease_forwards]"
