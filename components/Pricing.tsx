@@ -61,7 +61,7 @@ const PLANS = [
 
 // Update this manually as Founding spots close. Must reflect the real
 // number of signed founding clients — false scarcity is an ACL risk.
-const FOUNDING_SPOTS_REMAINING = 10;
+const FOUNDING_SPOTS_REMAINING = 4;
 const FOUNDING_SPOTS_TOTAL = 10;
 
 export function Pricing() {
