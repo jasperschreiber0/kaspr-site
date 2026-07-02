@@ -1,8 +1,21 @@
 import type { Metadata } from "next";
+import { Playfair_Display, DM_Sans } from "next/font/google";
 import "./globals.css";
 
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Kaspr — Your DMs answered. Your feed filled.",
+  title: "Kaspr — Turn missed DMs into booked clients",
   description:
     "Kaspr auto-replies to your Instagram and TikTok DMs, captures leads from comments, and books appointments directly into your calendar. Built for Australian beauty and wellness businesses.",
   metadataBase: new URL("https://kaspr.com.au"),
@@ -11,9 +24,9 @@ export const metadata: Metadata = {
     apple: "/kaspr-icon.png",
   },
   openGraph: {
-    title: "Kaspr — Your DMs answered. Your feed filled.",
+    title: "Kaspr — Turn missed DMs into booked clients",
     description:
-      "Stop losing clients to an empty inbox. Kaspr handles your DMs, follows up on cold leads, and posts content — while you're on the floor.",
+      "Kaspr answers your Instagram and TikTok DMs, follows up on cold leads, and books appointments into your calendar — while you're on the floor.",
     url: "https://kaspr.com.au",
     siteName: "Kaspr",
     locale: "en_AU",
@@ -34,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-AU">
+    <html lang="en-AU" className={`${playfair.variable} ${dmSans.variable}`}>
       <body>{children}</body>
     </html>
   );

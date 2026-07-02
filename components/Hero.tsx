@@ -138,24 +138,23 @@ export function Hero() {
         {/* Eyebrow + heading */}
         <div className="mb-12">
           <p className="text-2xs font-bold uppercase tracking-[0.2em] text-coral mb-8 opacity-0 animate-[fade-up_0.6s_0.2s_ease_forwards]">
-            Social media automation · Built for Australian beauty &amp; wellness
+            Done-for-you social media automation · Australian beauty &amp; wellness
           </p>
           <h1
             className="font-serif text-display-lg text-cream leading-[0.95] tracking-tight opacity-0 animate-[fade-up_0.8s_0.4s_ease_forwards]"
             style={{ maxWidth: "16ch" }}
           >
-            You&apos;re booked solid.{" "}
-            <em className="text-coral/80 not-italic">
-              Your DMs aren&apos;t.
-            </em>
+            Turn missed DMs into{" "}
+            <em className="text-coral/80 not-italic">booked clients.</em>
           </h1>
         </div>
 
         {/* Subhead + CTA — constrained to left half so the phone never overlaps */}
-        <div className="max-w-sm opacity-0 animate-[fade-up_0.7s_0.65s_ease_forwards]">
+        <div className="max-w-md opacity-0 animate-[fade-up_0.7s_0.65s_ease_forwards]">
           <p className="text-base text-cream/55 leading-relaxed mb-8">
-            Your DMs answered. Your feed filled. While you&apos;re on the
-            floor.
+            Kaspr answers your Instagram and TikTok DMs the moment they land,
+            follows up enquiries that go quiet, and books appointments
+            straight into your calendar — while you&apos;re on the floor.
           </p>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <a
