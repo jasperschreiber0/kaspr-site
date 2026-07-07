@@ -4,24 +4,24 @@ const SCENARIOS = [
   {
     label: "While you're with a client",
     title: "The 9pm enquiry gets answered",
-    desc: "A new client DMs while you're closing up. Kaspr replies within minutes with your prices, your availability and your booking link — in your voice, not a bot's.",
+    desc: "A new client DMs while you're closing up. Kaspr replies within minutes with your prices and availability — in your voice, not a bot's.",
   },
   {
-    label: "While you're off the tools",
-    title: "Quiet clients hear from you again",
-    desc: "Anyone who hasn't booked in 90 days gets a short, personal message. If they reply, the conversation lands straight in your inbox and you take it from there.",
+    label: "Between appointments",
+    title: "Today's reel goes out at the right time",
+    desc: "You send a photo or reel the moment you shoot it. Kaspr matches it to what's trending in your niche and queues it for when your audience is actually online.",
   },
   {
-    label: "After every appointment",
-    title: "Happy clients get asked for reviews",
-    desc: "Clients get a quick check-in after their visit. The happy ones get your Google review link. The unhappy ones come quietly to you first — before anything goes public.",
+    label: "The second someone comments",
+    title: "\"How much?\" turns into a conversation",
+    desc: "Someone comments on your post asking about pricing. Kaspr slides into their DMs and starts the conversation before you've even seen the notification.",
   },
 ];
 
 const FACTS = [
-  { num: "3", label: "Follow-ups for every quiet enquiry" },
-  { num: "8am–8pm", label: "Send window — no midnight texts" },
-  { num: "Instant", label: "STOP and opt-outs honoured" },
+  { num: "2", label: "Platforms covered — Instagram & TikTok" },
+  { num: "24/7", label: "DM & comment coverage" },
+  { num: "0", label: "Apps you need to open" },
 ];
 
 export function SocialProof() {
