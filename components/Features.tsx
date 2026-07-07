@@ -3,33 +3,33 @@ import { Reveal } from "@/components/Reveal";
 const FEATURES = [
   {
     num: "01",
-    title: "DM auto-reply",
-    desc: "Answers booking questions, pricing enquiries, and availability — the moment someone messages you on Instagram, any time of day.",
-    detail: "Never miss a warm lead again",
+    title: "Send it in, we post it",
+    desc: "Send your photos, reels, and voice notes to your Kaspr number. No content calendar to manage, no new app to learn — that's the only thing you have to do.",
+    detail: "Content handled the moment you hit send",
   },
   {
     num: "02",
-    title: "Comment-to-conversation",
-    desc: "When someone comments \"how much?\" or \"where are you located?\" on your post, Kaspr slides into their DMs automatically and starts the booking conversation.",
-    detail: "Turn passive viewers into paying clients",
+    title: "Trend-matched posting",
+    desc: "We track what's performing in your niche right now and match your content to it — the right format, caption, hashtags, and time to post.",
+    detail: "Post consistently without lifting a finger",
   },
   {
     num: "03",
-    title: "Follow-up sequences",
-    desc: "If an enquiry goes quiet, Kaspr follows up at 24 hours, 3 days, and 7 days. Warm, on-brand messages — not generic reminders.",
-    detail: "No more leads falling through the cracks",
+    title: "DM auto-reply",
+    desc: "Answers booking questions, pricing enquiries, and availability on Instagram — the moment someone messages you, any time of day.",
+    detail: "Never miss a warm lead again",
   },
   {
     num: "04",
-    title: "Content scheduling",
-    desc: "Pre-approve captions and reels, then Kaspr posts them at the right time for your audience. Your feed stays consistent without you touching the app.",
-    detail: "Post 4x a week with zero daily effort",
+    title: "Comment-to-conversation",
+    desc: "When someone comments \"how much?\" or \"where are you located?\" on your Instagram post, Kaspr slides into their DMs automatically and starts the booking conversation.",
+    detail: "Turn passive viewers into paying clients",
   },
   {
     num: "05",
-    title: "Appointment booking",
-    desc: "Kaspr books directly into your calendar from the DM conversation. Clients pick a time, confirm, and get a reminder — all without you typing a word.",
-    detail: "From DM to booked in under two minutes",
+    title: "Follow-up sequences",
+    desc: "If an enquiry goes quiet, Kaspr follows up at 24 hours, 3 days, and 7 days. Warm, on-brand messages — not generic reminders.",
+    detail: "No more leads falling through the cracks",
   },
 ];
 
