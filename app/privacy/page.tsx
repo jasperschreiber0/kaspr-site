@@ -47,7 +47,6 @@ export default function PrivacyPolicy() {
               <li>IP address, browser type, device identifiers, and usage data</li>
               <li>WhatsApp message content and metadata when interacting with our agents</li>
               <li>Instagram and TikTok account data when you connect your social accounts</li>
-              <li>Google Review request outcomes and SMS delivery data via Twilio</li>
             </ul>
             <p className="mt-3"><strong className="text-stone-800">Information from third-party platforms:</strong></p>
             <ul className="list-disc pl-5 space-y-1">
@@ -60,10 +59,10 @@ export default function PrivacyPolicy() {
             <ul className="list-disc pl-5 space-y-1">
               <li>To provide, operate, and improve our automation services</li>
               <li>To publish content to your connected social accounts on your behalf</li>
-              <li>To send automated WhatsApp and SMS messages to your clients as directed by you</li>
+              <li>To process content you send us via WhatsApp for posting</li>
+              <li>To auto-reply to Instagram DMs and comments on your behalf</li>
               <li>To process payments and send transaction and onboarding emails</li>
               <li>To comply with Australian law including the Spam Act 2003 (Cth) and Privacy Act 1988 (Cth)</li>
-              <li>To honour opt-out and STOP requests and maintain suppression lists</li>
             </ul>
             <p className="mt-3">We do not use your data for advertising. We do not train AI models on client content without explicit consent.</p>
           </Section>
@@ -87,25 +86,22 @@ export default function PrivacyPolicy() {
             </ul>
             <p className="mt-3">We do not sell personal information. Ever.</p>
           </Section>
-          <Section title="6. Opt-Out and STOP Requests">
-            <p>All WhatsApp and SMS messages include opt-out instructions. Recipients may reply STOP, UNSUBSCRIBE, or STOP ALL at any time. Requests are processed immediately and the number is added to a permanent suppression list. Compliant with the Spam Act 2003 (Cth) and Do Not Call Register Act 2006 (Cth).</p>
-          </Section>
-          <Section title="7. Data Security">
+          <Section title="6. Data Security">
             <p>Industry-standard security including encrypted storage and access controls. Database hosted in Sydney via Supabase. Access restricted to authorised personnel only.</p>
           </Section>
-          <Section title="8. Data Retention">
-            <p>Data retained while your account is active. Upon cancellation, held for 90 days then deleted. Suppression records retained indefinitely for compliance.</p>
+          <Section title="7. Data Retention">
+            <p>Data retained while your account is active. Upon cancellation, held for 90 days then deleted.</p>
           </Section>
-          <Section title="9. Your Rights">
+          <Section title="8. Your Rights">
             <p>Under the Privacy Act 1988 (Cth), you may access, correct, or request deletion of your personal information, and complain to the OAIC. Contact <a href="mailto:hello@kaspr.com.au" className="text-rose-500 underline underline-offset-2">hello@kaspr.com.au</a>. We respond within 30 days.</p>
           </Section>
-          <Section title="10. Children's Privacy">
+          <Section title="9. Children's Privacy">
             <p>Our services are not directed at individuals under 18. We do not knowingly collect information from children.</p>
           </Section>
-          <Section title="11. Changes to This Policy">
+          <Section title="10. Changes to This Policy">
             <p>We will notify clients of material changes via email. Continued use constitutes acceptance. The date above reflects the most recent revision.</p>
           </Section>
-          <Section title="12. Contact">
+          <Section title="11. Contact">
             <div className="p-4 bg-stone-50 rounded-xl border border-stone-200 text-stone-700">
               <p className="font-medium text-stone-900">Kaspr Pty Ltd</p>
               <p>Australia</p>

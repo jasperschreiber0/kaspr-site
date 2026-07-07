@@ -15,18 +15,18 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Kaspr — Turn missed DMs into booked clients",
+  title: "Kaspr — Send us your content, we'll handle your socials",
   description:
-    "Kaspr auto-replies to your Instagram DMs, captures leads from comments, and books appointments directly into your calendar. Built for Australian beauty and wellness businesses.",
+    "Kaspr posts your content, matches it to what's trending, and auto-replies to your Instagram DMs and comments. Built for Australian beauty and wellness businesses.",
   metadataBase: new URL("https://kaspr.com.au"),
   icons: {
     icon: "/kaspr-icon.png",
     apple: "/kaspr-icon.png",
   },
   openGraph: {
-    title: "Kaspr — Turn missed DMs into booked clients",
+    title: "Kaspr — Send us your content, we'll handle your socials",
     description:
-      "Kaspr answers your Instagram DMs, follows up on cold leads, and books appointments into your calendar — while you're on the floor.",
+      "Send your photos, reels and voice notes to Kaspr. We post at the right time and answer your Instagram DMs and comments — while you're on the floor.",
     url: "https://kaspr.com.au",
     siteName: "Kaspr",
     locale: "en_AU",
