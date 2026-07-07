@@ -17,7 +17,7 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "Kaspr — Turn missed DMs into booked clients",
   description:
-    "Kaspr auto-replies to your Instagram and TikTok DMs, captures leads from comments, and books appointments directly into your calendar. Built for Australian beauty and wellness businesses.",
+    "Kaspr auto-replies to your Instagram DMs, captures leads from comments, and books appointments directly into your calendar. Built for Australian beauty and wellness businesses.",
   metadataBase: new URL("https://kaspr.com.au"),
   icons: {
     icon: "/kaspr-icon.png",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Kaspr — Turn missed DMs into booked clients",
     description:
-      "Kaspr answers your Instagram and TikTok DMs, follows up on cold leads, and books appointments into your calendar — while you're on the floor.",
+      "Kaspr answers your Instagram DMs, follows up on cold leads, and books appointments into your calendar — while you're on the floor.",
     url: "https://kaspr.com.au",
     siteName: "Kaspr",
     locale: "en_AU",

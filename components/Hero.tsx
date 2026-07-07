@@ -152,9 +152,9 @@ export function Hero() {
         {/* Subhead + CTA — constrained to left half so the phone never overlaps */}
         <div className="max-w-md opacity-0 animate-[fade-up_0.7s_0.65s_ease_forwards]">
           <p className="text-base text-cream/55 leading-relaxed mb-8">
-            Kaspr answers your Instagram and TikTok DMs the moment they land,
-            follows up enquiries that go quiet, and books appointments
-            straight into your calendar — while you&apos;re on the floor.
+            Kaspr answers your Instagram DMs the moment they land, follows up
+            enquiries that go quiet, and books appointments straight into
+            your calendar — while you&apos;re on the floor.
           </p>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <a

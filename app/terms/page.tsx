@@ -31,7 +31,7 @@ export default function TermsOfService() {
             These Terms of Service govern your access to and use of services provided by Kaspr Pty Ltd ("Kaspr"), including kaspr.com.au and all associated automation services. By subscribing or using our services, you agree to these Terms.
           </p>
           <Section title="1. About Kaspr">
-            <p>Kaspr is an AI automation platform for beauty and wellness studios in Australia. Services include automated client reactivation, Google Review campaigns, Instagram and TikTok content publishing, DM management, and AI content generation.</p>
+            <p>Kaspr is an AI automation platform for beauty and wellness studios in Australia. Services include automated client reactivation, Google Review campaigns, Instagram and TikTok content publishing, Instagram DM management, and AI content generation.</p>
           </Section>
           <Section title="2. Eligibility">
             <p>You must be at least 18 years of age and authorised to enter binding contracts. Our services are intended for Australian beauty and wellness studios.</p>

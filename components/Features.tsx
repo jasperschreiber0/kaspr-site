@@ -4,7 +4,7 @@ const FEATURES = [
   {
     num: "01",
     title: "DM auto-reply",
-    desc: "Answers booking questions, pricing enquiries, and availability — the moment someone messages you. On Instagram and TikTok, any time of day.",
+    desc: "Answers booking questions, pricing enquiries, and availability — the moment someone messages you on Instagram, any time of day.",
     detail: "Never miss a warm lead again",
   },
   {
