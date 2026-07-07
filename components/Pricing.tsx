@@ -2,39 +2,21 @@ import { Reveal } from "@/components/Reveal";
 
 const PLANS = [
   {
-    name: "Revive",
-    outcome: "Bring back clients who've gone quiet.",
-    setup: "$1,500",
-    setupFounding: "$750",
-    monthly: "$297",
-    monthlyFounding: "$148",
-    features: [
-      "ReActivate — lapsed client recovery via WhatsApp",
-      "ReviewRunner — Google reviews on autopilot",
-      "Missed-call SMS auto-reply (under 10 seconds)",
-      "30 / 60 / 90-day wake-up sequences",
-      "Opt-out + compliance handling built in",
-      "Monthly results report — replies, rebookings, opt-outs",
-    ],
-    cta: "Start Revive",
-    featured: false,
-  },
-  {
-    name: "Revive + Grow",
-    outcome:
-      "Recover clients and post every day without touching a phone.",
+    name: "Grow",
+    outcome: "Post consistently and answer every DM — without touching your phone.",
     setup: "$3,500",
     setupFounding: "$1,750",
     monthly: "$597",
     monthlyFounding: "$298",
     features: [
-      "Everything in Revive",
-      "Instagram + TikTok daily posting",
+      "Send in photos, reels & voice notes — we post them",
+      "Trend-matched posting on Instagram + TikTok",
       "Comment-to-DM lead capture",
-      "DM auto-reply with booking intent routing",
+      "DM auto-reply with booking-intent routing",
+      "Follow-up sequences for quiet enquiries",
       "Brand voice setup",
     ],
-    cta: "Start Revive + Grow",
+    cta: "Start with Grow",
     featured: true,
     pill: "Most studios start here",
   },
@@ -46,10 +28,8 @@ const PLANS = [
     monthly: "$997",
     monthlyFounding: "$498",
     features: [
-      "Everything in Revive + Grow",
-      "AI content generation — images & reels",
-      "Appointment booking directly from DMs",
-      "Calendar integration (Fresha, Timely, etc.)",
+      "Everything in Grow",
+      "Deeper trend research cadence across both platforms",
       "Ongoing agent management & tuning",
       "Monthly reporting & strategy call",
       "Priority support (4hr response)",
@@ -71,12 +51,12 @@ export function Pricing() {
         <Reveal>
           <p className="section-tag mb-5">Pricing</p>
           <h2 className="font-serif text-display-sm text-espresso leading-tight mb-4 max-w-2xl">
-            Recover the revenue you&rsquo;re quietly losing.
+            Stop losing leads and posts to a full book.
           </h2>
           <p className="text-base text-mid leading-relaxed max-w-xl mb-12">
-            Most studios lose 20–30% of their clients every quarter to
-            silence. Kaspr brings them back — and keeps your socials posting
-            while we're at it. No lock-in. All prices in AUD.
+            Send in your content and Kaspr keeps your feed posting and your
+            DMs answered — no social media manager, no daily app-opening. No
+            lock-in. All prices in AUD.
           </p>
         </Reveal>
 
@@ -105,7 +85,7 @@ export function Pricing() {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-stretch max-w-3xl mx-auto">
           {PLANS.map((plan, i) => (
             <Reveal key={plan.name} delay={i * 80} className="h-full">
               <div
@@ -238,16 +218,6 @@ export function Pricing() {
             </Reveal>
           ))}
         </div>
-        {/* Guarantee line */}
-        <Reveal>
-          <p className="text-center text-sm text-mid mt-10 max-w-2xl mx-auto">
-            <span className="font-semibold text-espresso">
-              Founding Clients guarantee:
-            </span>{" "}
-            if ReActivate doesn't have lapsed clients replying within your
-            first 30 days, your next month is free.
-          </p>
-        </Reveal>
       </div>
     </section>
   );
