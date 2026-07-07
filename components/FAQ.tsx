@@ -10,7 +10,7 @@ const FAQS = [
   },
   {
     q: "Will it actually sound like me?",
-    a: "Yes. We spend the first week training the reply scripts on your existing content, your tone, and a short voice brief you fill out. You review and approve the first round of replies before anything goes live — and we keep tuning until it sounds like you.",
+    a: "Yes. We spend the first week training the reply scripts and captions on your existing content, your tone, and a short voice brief you fill out. You review and approve the first round before anything goes live — and we keep tuning until it sounds like you.",
   },
   {
     q: "How long does setup take?",
@@ -22,7 +22,7 @@ const FAQS = [
   },
   {
     q: "What platforms does it work on?",
-    a: "Instagram and TikTok. Revive is reactivation, reviews and missed-call recovery — no posting. Revive + Grow and Full Stack cover posting on both Instagram and TikTok. We're not building for Facebook — that's not where your clients are.",
+    a: "Instagram and TikTok. We post your content to both. DM auto-reply and comment-to-DM lead capture currently run on Instagram. We're not building for Facebook — that's not where your clients are.",
   },
 ];
 
