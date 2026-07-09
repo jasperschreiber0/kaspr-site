@@ -80,7 +80,7 @@ export default function PrivacyPolicy() {
           </Section>
           <Section title="5. Sharing Your Information">
             <ul className="list-disc pl-5 space-y-1">
-              <li><strong>Service providers:</strong> Supabase, Railway, Twilio, Resend, Stripe, Apify, Replicate, Meta, TikTok — only as necessary to deliver our services.</li>
+              <li><strong>Service providers:</strong> Supabase, Railway, Twilio, Resend, Stripe, Apify, Meta, TikTok — only as necessary to deliver our services.</li>
               <li><strong>Legal requirements:</strong> Where required by Australian law or court order.</li>
               <li><strong>Business transfers:</strong> If Kaspr is acquired, subject to equivalent privacy protections.</li>
             </ul>

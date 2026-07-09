@@ -137,24 +137,24 @@ export function Hero() {
         {/* Eyebrow + heading */}
         <div className="mb-12">
           <p className="text-2xs font-bold uppercase tracking-[0.2em] text-coral mb-8 opacity-0 animate-[fade-up_0.6s_0.2s_ease_forwards]">
-            Done-for-you social media automation · Australian beauty &amp; wellness
+            Your Instagram&apos;s AI front desk · Australian beauty &amp; wellness
           </p>
           <h1
             className="font-serif text-display-lg text-cream leading-[0.95] tracking-tight opacity-0 animate-[fade-up_0.8s_0.4s_ease_forwards]"
             style={{ maxWidth: "18ch" }}
           >
-            Send us your content.{" "}
-            <em className="text-coral/80 not-italic">We&apos;ll handle your socials.</em>
+            Turn Instagram attention into{" "}
+            <em className="text-coral/80 not-italic">booked revenue.</em>
           </h1>
         </div>
 
         {/* Subhead + CTA — constrained to left half so the phone never overlaps */}
         <div className="max-w-md opacity-0 animate-[fade-up_0.7s_0.65s_ease_forwards]">
           <p className="text-base text-cream/55 leading-relaxed mb-8">
-            Send your photos, reels and voice notes straight to Kaspr. We
-            spot what&apos;s trending in your niche, write the caption, and
-            post at the time your audience is actually online — while also
-            answering your Instagram DMs and comments the moment they land.
+            Every DM and comment gets answered in seconds and quiet
+            enquiries get followed up, so nothing goes cold. Send us your
+            photos, reels and voice notes and we&apos;ll keep your feed
+            posting too — while you&apos;re on the floor.
           </p>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <a

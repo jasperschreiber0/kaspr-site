@@ -15,18 +15,18 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Kaspr — Send us your content, we'll handle your socials",
+  title: "Kaspr — The AI front desk for your Instagram",
   description:
-    "Kaspr posts your content, matches it to what's trending, and auto-replies to your Instagram DMs and comments. Built for Australian beauty and wellness businesses.",
+    "Kaspr answers your Instagram DMs and comments in seconds, follows up quiet enquiries, and keeps your feed posting — turning Instagram attention into booked revenue. Built for Australian beauty and wellness businesses.",
   metadataBase: new URL("https://kaspr.com.au"),
   icons: {
     icon: "/kaspr-icon.png",
     apple: "/kaspr-icon.png",
   },
   openGraph: {
-    title: "Kaspr — Send us your content, we'll handle your socials",
+    title: "Kaspr — The AI front desk for your Instagram",
     description:
-      "Send your photos, reels and voice notes to Kaspr. We post at the right time and answer your Instagram DMs and comments — while you're on the floor.",
+      "Every DM and comment answered in seconds, quiet enquiries followed up, your feed kept posting — while you're on the floor.",
     url: "https://kaspr.com.au",
     siteName: "Kaspr",
     locale: "en_AU",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kaspr — Social media automation for Australian beauty businesses",
+    title: "Kaspr — The AI front desk for Australian beauty businesses",
     description:
       "DM auto-replies, lead follow-ups, content scheduling. All done for you.",
   },
