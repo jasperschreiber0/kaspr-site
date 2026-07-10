@@ -32,7 +32,7 @@ function DMBubble({
         {children}
         {isKaspr && (
           <p className="text-[10px] text-white/60 text-right mt-1">
-            Kaspr · auto-reply ✓
+            Kaspr · automated ✓
           </p>
         )}
       </div>
@@ -64,7 +64,7 @@ function PhoneMockup() {
           </div>
         </div>
 
-        {/* Instagram DM header */}
+        {/* Content-inbox header */}
         <div className="bg-espresso-light px-4 py-2.5 flex items-center gap-2.5 border-b border-white/8">
           <div className="relative w-8 h-8 rounded-full bg-sage flex items-center justify-center ring-1 ring-white/15">
             <span className="font-serif italic text-[15px] leading-none text-espresso">
@@ -75,28 +75,27 @@ function PhoneMockup() {
           </div>
           <div>
             <p className="text-[13px] font-semibold text-white">Jade Wilson</p>
-            <p className="text-[11px] text-white/40">Active now</p>
+            <p className="text-[11px] text-white/40">Kaspr content inbox</p>
           </div>
         </div>
 
         {/* Messages */}
         <div className="px-3 py-3 space-y-2 bg-[#0f0a05] min-h-[280px]">
           <DMBubble from="client" delay="0ms">
-            Hey! How much are your gel nails? 💅
+            🎥 Reel from today&apos;s balayage sent
           </DMBubble>
 
           <DMBubble from="kaspr" delay="400ms">
-            Hey Jade! Gel sets start from $65. We have spots Thu + Fri this
-            week — want me to send through a booking link?
+            Got it! Trending audio + caption matched — queuing for Thu 6:40pm,
+            your best engagement window 📈
           </DMBubble>
 
           <DMBubble from="client" delay="800ms">
-            Thursday at 2pm would be perfect!
+            You&apos;re a lifesaver, I never have time for this
           </DMBubble>
 
           <DMBubble from="kaspr" delay="1200ms">
-            Done! 🎉 Thursday 2pm with Sarah is confirmed. Check your email
-            for the details.
+            That&apos;s the job 🎉 Just went live on Instagram + TikTok.
           </DMBubble>
 
           {/* Typing indicator */}
@@ -110,7 +109,7 @@ function PhoneMockup() {
                 />
               ))}
             </div>
-            <span className="text-[10px] text-white/30">next enquiry…</span>
+            <span className="text-[10px] text-white/30">watching for trends…</span>
           </div>
         </div>
 
@@ -138,23 +137,24 @@ export function Hero() {
         {/* Eyebrow + heading */}
         <div className="mb-12">
           <p className="text-2xs font-bold uppercase tracking-[0.2em] text-coral mb-8 opacity-0 animate-[fade-up_0.6s_0.2s_ease_forwards]">
-            Done-for-you social media automation · Australian beauty &amp; wellness
+            Your Instagram&apos;s AI front desk · Australian beauty &amp; wellness
           </p>
           <h1
             className="font-serif text-display-lg text-cream leading-[0.95] tracking-tight opacity-0 animate-[fade-up_0.8s_0.4s_ease_forwards]"
-            style={{ maxWidth: "16ch" }}
+            style={{ maxWidth: "18ch" }}
           >
-            Turn missed DMs into{" "}
-            <em className="text-coral/80 not-italic">booked clients.</em>
+            Turn Instagram attention into{" "}
+            <em className="text-coral/80 not-italic">booked revenue.</em>
           </h1>
         </div>
 
         {/* Subhead + CTA — constrained to left half so the phone never overlaps */}
         <div className="max-w-md opacity-0 animate-[fade-up_0.7s_0.65s_ease_forwards]">
           <p className="text-base text-cream/55 leading-relaxed mb-8">
-            Kaspr answers your Instagram and TikTok DMs the moment they land,
-            follows up enquiries that go quiet, and books appointments
-            straight into your calendar — while you&apos;re on the floor.
+            Every DM and comment gets answered in seconds and quiet
+            enquiries get followed up, so nothing goes cold. Send us your
+            photos, reels and voice notes and we&apos;ll keep your feed
+            posting too — while you&apos;re on the floor.
           </p>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <a
