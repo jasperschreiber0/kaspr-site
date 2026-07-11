@@ -5,9 +5,9 @@ const PLANS = [
     name: "Grow",
     outcome: "Post consistently and answer every DM — without touching your phone.",
     setup: "$3,500",
-    setupFounding: "$1,750",
+    setupFounding: "$900",
     monthly: "$597",
-    monthlyFounding: "$298",
+    monthlyFounding: "$200",
     features: [
       "Send in photos, reels & voice notes — we post them",
       "Trend-matched posting on Instagram + TikTok",
@@ -24,9 +24,9 @@ const PLANS = [
     name: "Full Stack",
     outcome: "Everything, done for you. Monthly reporting call.",
     setup: "$7,500",
-    setupFounding: "$3,750",
+    setupFounding: "$1,900",
     monthly: "$997",
-    monthlyFounding: "$498",
+    monthlyFounding: "$400",
     features: [
       "Everything in Grow",
       "Deeper trend research cadence across both platforms",
@@ -74,12 +74,12 @@ export function Pricing() {
                 Founding Clients — limited
               </p>
               <h3 className="font-serif text-xl md:text-2xl text-espresso mb-1.5">
-                50% off setup and monthly, locked rate for life.
+                Founding rate, locked for life.
               </h3>
               <p className="text-sm text-mid leading-relaxed">
                 First 10 studios. In exchange: a short testimonial and
                 permission to share your results once they're in. Prices
-                below reflect the Founding discount.
+                below reflect the Founding rate.
               </p>
             </div>
           </div>
