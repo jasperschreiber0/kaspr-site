@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Dashboard | Kaspr", robots: { index: false, follow: false } };
@@ -116,10 +117,20 @@ export default async function DashboardPage() {
   return (
     <div className="min-h-screen bg-cream px-6 py-12 md:px-10">
       <div className="max-w-6xl mx-auto">
-        <p className="text-2xs font-bold uppercase tracking-[0.18em] text-coral mb-2">
-          Internal · last 30 days
-        </p>
-        <h1 className="font-serif text-3xl text-espresso mb-1">Kaspr dashboard</h1>
+        <div className="flex items-start justify-between gap-4 mb-1">
+          <div>
+            <p className="text-2xs font-bold uppercase tracking-[0.18em] text-coral mb-2">
+              Internal · last 30 days
+            </p>
+            <h1 className="font-serif text-3xl text-espresso mb-1">Kaspr dashboard</h1>
+          </div>
+          <Link
+            href="/dashboard/new-client"
+            className="shrink-0 bg-espresso text-cream text-xs font-bold px-4 py-2.5 rounded-full hover:bg-espresso-light transition-colors"
+          >
+            + New client
+          </Link>
+        </div>
         <p className="text-sm text-mid mb-10">
           {rows.length} active client{rows.length === 1 ? "" : "s"} &middot;{" "}
           {totals.conversations} conversations &middot; {totals.reviews} review requests &middot;{" "}
