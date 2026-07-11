@@ -13,6 +13,11 @@ type ClientStats = {
   missedCallsHandled: number;
   missedCallsTexted: number;
   contentReceived: number;
+  postsScheduled: number;
+  postsPosted: number;
+  postsFailed: number;
+  instagramPublished: number;
+  tiktokPublished: number;
 };
 
 function supabaseAdmin() {
@@ -32,6 +37,7 @@ async function getStats(): Promise<ClientStats[]> {
     { data: reviewRequests },
     { data: missedCalls },
     { data: contentQueue },
+    { data: scheduledPosts },
   ] = await Promise.all([
     supabase.from("clients").select("id, business_name").eq("active", true),
     supabase
@@ -41,6 +47,10 @@ async function getStats(): Promise<ClientStats[]> {
     supabase.from("review_requests").select("client_id").gte("sent_at", since),
     supabase.from("missed_calls").select("client_id, sms_sent").gte("created_at", since),
     supabase.from("content_queue").select("client_id").gte("received_at", since),
+    supabase
+      .from("scheduled_posts")
+      .select("client_id, status, instagram_post_id, tiktok_post_id")
+      .gte("created_at", since),
   ]);
 
   return (clients || []).map((client) => {
@@ -48,6 +58,8 @@ async function getStats(): Promise<ClientStats[]> {
     const avgMs = convos.length
       ? convos.reduce((sum, c) => sum + (c.response_ms || 0), 0) / convos.length
       : null;
+    const posts = (scheduledPosts || []).filter((p) => p.client_id === client.id);
+    const posted = posts.filter((p) => p.status === "posted");
 
     return {
       id: client.id,
@@ -61,6 +73,11 @@ async function getStats(): Promise<ClientStats[]> {
         (m) => m.client_id === client.id && m.sms_sent
       ).length,
       contentReceived: (contentQueue || []).filter((c) => c.client_id === client.id).length,
+      postsScheduled: posts.filter((p) => p.status === "scheduled").length,
+      postsPosted: posted.length,
+      postsFailed: posts.filter((p) => p.status === "failed").length,
+      instagramPublished: posted.filter((p) => !!p.instagram_post_id).length,
+      tiktokPublished: posted.filter((p) => !!p.tiktok_post_id).length,
     };
   });
 }
@@ -90,8 +107,10 @@ export default async function DashboardPage() {
       reviews: acc.reviews + r.reviewsSent,
       missedCalls: acc.missedCalls + r.missedCallsHandled,
       content: acc.content + r.contentReceived,
+      postsPosted: acc.postsPosted + r.postsPosted,
+      postsFailed: acc.postsFailed + r.postsFailed,
     }),
-    { conversations: 0, reviews: 0, missedCalls: 0, content: 0 }
+    { conversations: 0, reviews: 0, missedCalls: 0, content: 0, postsPosted: 0, postsFailed: 0 }
   );
 
   return (
@@ -105,6 +124,13 @@ export default async function DashboardPage() {
           {rows.length} active client{rows.length === 1 ? "" : "s"} &middot;{" "}
           {totals.conversations} conversations &middot; {totals.reviews} review requests &middot;{" "}
           {totals.missedCalls} missed calls handled &middot; {totals.content} posts received
+          &middot; {totals.postsPosted} posts published
+          {totals.postsFailed > 0 && (
+            <span className="text-coral-dark font-semibold">
+              {" "}
+              &middot; {totals.postsFailed} publish failure{totals.postsFailed === 1 ? "" : "s"}
+            </span>
+          )}
         </p>
 
         {loadError && (
@@ -140,6 +166,12 @@ export default async function DashboardPage() {
                   <th className="px-4 py-3 text-center font-semibold text-espresso border-l border-border">
                     Content received
                   </th>
+                  <th className="px-4 py-3 text-center font-semibold text-espresso border-l border-border">
+                    Posted (IG / TT)
+                  </th>
+                  <th className="px-4 py-3 text-center font-semibold text-espresso border-l border-border">
+                    Publish failures
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -160,6 +192,22 @@ export default async function DashboardPage() {
                       label={`${r.missedCallsTexted} texted`}
                     />
                     <StatCell value={`${r.contentReceived}`} label="items" />
+                    <StatCell
+                      value={`${r.instagramPublished} / ${r.tiktokPublished}`}
+                      label={`${r.postsScheduled} scheduled`}
+                    />
+                    <td className="px-4 py-4 text-center border-l border-border">
+                      <div
+                        className={`font-serif text-lg tabular-nums ${
+                          r.postsFailed > 0 ? "text-coral-dark" : "text-espresso"
+                        }`}
+                      >
+                        {r.postsFailed}
+                      </div>
+                      <div className="text-2xs uppercase tracking-wide text-mid mt-0.5">
+                        failed
+                      </div>
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -170,7 +218,10 @@ export default async function DashboardPage() {
         <p className="mt-6 text-xs text-mid">
           Data since {new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toLocaleDateString("en-AU")}.
           Zeros across the board usually mean the Supabase migration hasn&apos;t been run yet, not
-          that nothing happened.
+          that nothing happened. &quot;Posted (IG / TT)&quot; counts posts with a recorded
+          instagram_post_id / tiktok_post_id — a client with content flowing in but 0 TikTok
+          posts published usually means their TikTok isn&apos;t connected, not that nothing was
+          attempted; check publish failures too.
         </p>
       </div>
     </div>
