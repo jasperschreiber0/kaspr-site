@@ -17,6 +17,7 @@ const PLANS = [
       "Brand voice setup",
     ],
     cta: "Start with Grow",
+    checkoutTier: "grow",
     featured: true,
     pill: "Most studios start here",
   },
@@ -34,7 +35,8 @@ const PLANS = [
       "Monthly reporting & strategy call",
       "Priority support (4hr response)",
     ],
-    cta: "Talk to us",
+    cta: "Get started with Full Stack",
+    checkoutTier: "full_stack",
     featured: false,
   },
 ];
@@ -202,18 +204,30 @@ export function Pricing() {
                   ))}
                 </ul>
 
-                <a
-                  href="https://calendly.com/jasperschreiber0/new-meeting"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`block text-center text-sm font-bold py-3.5 rounded-full transition-colors mt-2 ${
-                    plan.featured
-                      ? "bg-coral text-white hover:bg-coral-dark"
-                      : "border-2 border-espresso text-espresso hover:bg-espresso hover:text-cream"
-                  }`}
-                >
-                  {plan.cta}
-                </a>
+                <div className="flex flex-col gap-2.5 mt-2">
+                  <a
+                    href={`/api/checkout?tier=${plan.checkoutTier}`}
+                    className={`block text-center text-sm font-bold py-3.5 rounded-full transition-colors ${
+                      plan.featured
+                        ? "bg-coral text-white hover:bg-coral-dark"
+                        : "border-2 border-espresso text-espresso hover:bg-espresso hover:text-cream"
+                    }`}
+                  >
+                    {plan.cta}
+                  </a>
+                  <a
+                    href="https://calendly.com/jasperschreiber0/new-meeting"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`text-center text-xs font-medium transition-colors ${
+                      plan.featured
+                        ? "text-cream/45 hover:text-cream/70"
+                        : "text-mid hover:text-espresso"
+                    }`}
+                  >
+                    Prefer to talk first? Book a free call
+                  </a>
+                </div>
               </div>
             </Reveal>
           ))}
