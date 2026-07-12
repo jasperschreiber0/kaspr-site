@@ -10,9 +10,9 @@ const STEPS = [
   },
   {
     num: "02",
-    label: "We build your automations",
-    title: "Custom flows built around your business",
-    desc: "DM reply scripts written in your voice. Follow-up sequences timed to your booking cycle. Content scheduled around your busiest periods. All built and tested before anything goes live.",
+    label: "We set everything up",
+    title: "Built around how you already work",
+    desc: "Replies written in your voice. Follow-ups timed to how clients actually book with you. Content scheduled around your busiest weeks. All set up and checked before anything goes live.",
     detail: "Done in about a week",
   },
   {
@@ -34,7 +34,7 @@ export function HowItWorks() {
             Three steps. None of them are yours.
           </h2>
           <p className="text-base text-mid leading-relaxed max-w-md mb-14">
-            We do the setup. You approve it. Then it runs.
+            We do the setup. You approve it. Then it keeps working.
           </p>
         </Reveal>
 
