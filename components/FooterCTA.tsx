@@ -23,7 +23,7 @@ export function FooterCTA() {
               href="https://calendly.com/jasperschreiber0/new-meeting"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white text-coral text-sm font-bold px-8 py-4 rounded-full hover:bg-cream transition-colors shadow-md"
+              className="inline-flex items-center gap-2 bg-white text-coral text-sm font-bold px-8 py-4 rounded-full shadow-md transition-all duration-300 ease-premium hover:bg-cream hover:-translate-y-0.5 hover:shadow-lift active:translate-y-0"
             >
               Book a free call
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>

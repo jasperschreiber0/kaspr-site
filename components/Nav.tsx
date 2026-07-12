@@ -55,7 +55,7 @@ export function Nav() {
             href="https://calendly.com/jasperschreiber0/new-meeting"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-bold bg-coral text-white px-5 py-2.5 rounded-full hover:bg-coral-dark transition-colors"
+            className="text-sm font-bold bg-coral text-white px-5 py-2.5 rounded-full transition-all duration-300 ease-premium hover:bg-coral-dark hover:-translate-y-0.5 hover:shadow-lift active:translate-y-0"
           >
             Book a free call
           </a>
