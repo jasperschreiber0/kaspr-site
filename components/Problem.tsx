@@ -20,7 +20,7 @@ const PAIN_POINTS = [
           strokeLinecap="round"
           strokeLinejoin="round"
         />
-        <circle cx="22" cy="8" r="4" fill="#F2694B" />
+        <circle cx="22" cy="8" r="4" fill="#A8425A" />
         <text x="22" y="11.5" fontSize="5" textAnchor="middle" fill="white" fontWeight="bold">3</text>
       </svg>
     ),
@@ -35,7 +35,7 @@ const PAIN_POINTS = [
         <rect x="15" y="3" width="10" height="10" rx="2" stroke="currentColor" strokeWidth="1.5" />
         <rect x="3" y="15" width="10" height="10" rx="2" stroke="currentColor" strokeWidth="1.5" />
         <rect x="15" y="15" width="10" height="10" rx="2" stroke="currentColor" strokeWidth="1.5" strokeDasharray="2 2" />
-        <path d="M20 20v-2M20 22v.5" stroke="#F2694B" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M20 20v-2M20 22v.5" stroke="#A8425A" strokeWidth="1.5" strokeLinecap="round" />
       </svg>
     ),
   },
@@ -57,7 +57,7 @@ const PAIN_POINTS = [
           strokeLinecap="round"
           strokeLinejoin="round"
         />
-        <path d="M8 2L4 5M20 2l4 3" stroke="#F2694B" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M8 2L4 5M20 2l4 3" stroke="#A8425A" strokeWidth="1.5" strokeLinecap="round" />
       </svg>
     ),
   },
@@ -83,7 +83,7 @@ export function Problem() {
               >
                 <path
                   d="M2 7C42 2.5 118 1.5 198 5.5"
-                  stroke="#F2694B"
+                  stroke="#A8425A"
                   strokeWidth="3.5"
                   strokeLinecap="round"
                 />
@@ -101,7 +101,7 @@ export function Problem() {
           {PAIN_POINTS.map((point) => (
             <div
               key={point.label}
-              className="group bg-cream-dark border border-border rounded-2xl p-7 md:p-9 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300"
+              className="group bg-cream-dark border border-border rounded-2xl p-7 md:p-9 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-400 ease-premium"
             >
               {/* Icon + time */}
               <div className="flex items-start justify-between mb-5">

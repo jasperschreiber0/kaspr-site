@@ -29,7 +29,7 @@ export function MobileCTA() {
           href="https://calendly.com/jasperschreiber0/new-meeting"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-shrink-0 bg-coral text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-coral-dark transition-colors"
+          className="flex-shrink-0 bg-coral text-white text-sm font-bold px-5 py-2.5 rounded-full transition-colors duration-300 ease-premium hover:bg-coral-dark active:scale-95"
         >
           Book a free call →
         </a>

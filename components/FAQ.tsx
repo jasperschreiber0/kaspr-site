@@ -40,7 +40,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
           {q}
         </span>
         <span
-          className={`flex-shrink-0 w-7 h-7 rounded-full border border-border flex items-center justify-center transition-all duration-300 ${
+          className={`flex-shrink-0 w-7 h-7 rounded-full border border-border flex items-center justify-center transition-all duration-400 ease-premium ${
             open
               ? "bg-coral border-coral rotate-45"
               : "bg-transparent group-hover:border-coral"
@@ -49,7 +49,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
           <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden>
             <path
               d="M5.5 1v9M1 5.5h9"
-              stroke={open ? "white" : "#1A1008"}
+              stroke={open ? "white" : "#1C1310"}
               strokeWidth="1.4"
               strokeLinecap="round"
             />

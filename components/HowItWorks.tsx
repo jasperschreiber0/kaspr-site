@@ -41,7 +41,7 @@ export function HowItWorks() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {STEPS.map((step, i) => (
             <Reveal key={step.num} delay={i * 80}>
-              <div className="group relative bg-white border border-border rounded-2xl p-8 shadow-card h-full flex flex-col">
+              <div className="group relative bg-white border border-border rounded-2xl p-8 shadow-card hover:shadow-card-hover hover:-translate-y-1 h-full flex flex-col transition-all duration-400 ease-premium">
                 {/* Step number */}
                 <div className="font-serif text-[72px] leading-none text-border mb-6 group-hover:text-coral/20 transition-colors duration-300">
                   {step.num}
@@ -83,7 +83,7 @@ export function HowItWorks() {
               href="https://calendly.com/jasperschreiber0/new-meeting"
             target="_blank"
             rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-coral text-white text-sm font-bold px-8 py-4 rounded-full hover:bg-coral-dark transition-colors"
+              className="inline-flex items-center gap-2 bg-coral text-white text-sm font-bold px-8 py-4 rounded-full transition-all duration-300 ease-premium hover:bg-coral-dark hover:-translate-y-0.5 hover:shadow-lift active:translate-y-0"
             >
               Start with a free audit
             </a>

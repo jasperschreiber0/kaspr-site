@@ -91,9 +91,9 @@ export function Pricing() {
           {PLANS.map((plan, i) => (
             <Reveal key={plan.name} delay={i * 80} className="h-full">
               <div
-                className={`relative rounded-2xl p-8 flex flex-col gap-6 h-full transition-all duration-300 hover:-translate-y-1 ${
+                className={`relative rounded-2xl p-8 flex flex-col gap-6 h-full transition-all duration-400 ease-premium hover:-translate-y-1 ${
                   plan.featured
-                    ? "bg-espresso shadow-[0_20px_60px_rgba(26,16,8,0.25)]"
+                    ? "bg-espresso shadow-[0_20px_60px_rgba(28,19,16,0.25)]"
                     : "bg-white border border-border shadow-card hover:shadow-card-hover"
                 }`}
               >
@@ -108,7 +108,7 @@ export function Pricing() {
                 <div>
                   <p
                     className={`text-2xs font-bold uppercase tracking-[0.18em] mb-4 ${
-                      plan.featured ? "text-coral/80" : "text-coral"
+                      plan.featured ? "text-coral-bright" : "text-coral"
                     }`}
                   >
                     {plan.name}
@@ -193,7 +193,7 @@ export function Pricing() {
                       >
                         <path
                           d="M2.5 7L5.5 10L11.5 4"
-                          stroke="#F2694B"
+                          stroke="#A8425A"
                           strokeWidth="1.5"
                           strokeLinecap="round"
                           strokeLinejoin="round"
@@ -207,9 +207,9 @@ export function Pricing() {
                 <div className="flex flex-col gap-2.5 mt-2">
                   <a
                     href={`/api/checkout?tier=${plan.checkoutTier}`}
-                    className={`block text-center text-sm font-bold py-3.5 rounded-full transition-colors ${
+                    className={`block text-center text-sm font-bold py-3.5 rounded-full transition-all duration-300 ease-premium hover:-translate-y-0.5 active:translate-y-0 ${
                       plan.featured
-                        ? "bg-coral text-white hover:bg-coral-dark"
+                        ? "bg-coral text-white hover:bg-coral-dark hover:shadow-lift"
                         : "border-2 border-espresso text-espresso hover:bg-espresso hover:text-cream"
                     }`}
                   >

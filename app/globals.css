@@ -21,6 +21,25 @@
   ::selection {
     @apply bg-coral/20 text-espresso;
   }
+
+  /* Quiet, on-brand keyboard focus — replaces the default blue browser
+     ring, which clashes on both the cream and espresso sections. */
+  a:focus-visible,
+  button:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid theme("colors.coral.DEFAULT");
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
 
 /* ── Utilities ────────────────────────────────────────────────── */
@@ -37,11 +56,13 @@
     mix-blend-mode: overlay;
   }
 
-  /* Scroll-reveal animation state */
+  /* Scroll-reveal animation state — quiet, confident easing rather than
+     the default linear "ease", so sections settle instead of snapping in */
   .reveal {
     opacity: 0;
     transform: translateY(24px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .reveal.visible {
     opacity: 1;
@@ -52,7 +73,8 @@
   .reveal-stagger > * {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .reveal-stagger.visible > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0ms; }
   .reveal-stagger.visible > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 100ms; }
