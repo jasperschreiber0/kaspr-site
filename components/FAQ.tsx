@@ -6,7 +6,7 @@ import { Reveal } from "@/components/Reveal";
 const FAQS = [
   {
     q: "Do I need a big following for this to work?",
-    a: "Not at all. Kaspr works best for businesses that are already getting enquiries — whether that's 500 followers or 50,000. If people are DMing you or commenting on your posts, we can capture and convert those leads. A bigger following just means more volume.",
+    a: "Not at all. If people already DM you asking about pricing, or comment \"how much?\" on your posts, that's all Kaspr needs to start picking those up properly. A bigger following just means more of those moments to catch.",
   },
   {
     q: "Will it actually sound like me?",

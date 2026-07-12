@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Kaspr — The AI front desk for Australian beauty businesses",
     description:
-      "DM auto-replies, lead follow-ups, content scheduling. All done for you.",
+      "Every DM answered, every quiet lead followed up, your feed kept posting. All done for you.",
   },
   robots: { index: true, follow: true },
 };

@@ -3,7 +3,7 @@ import { Reveal } from "@/components/Reveal";
 const PLANS = [
   {
     name: "Grow",
-    outcome: "Post consistently and answer every DM — without touching your phone.",
+    outcome: "Your DMs and your feed, covered — you don't open Instagram once.",
     setup: "$3,500",
     setupFounding: "$900",
     monthly: "$597",
@@ -23,7 +23,7 @@ const PLANS = [
   },
   {
     name: "Full Stack",
-    outcome: "Everything, done for you. Monthly reporting call.",
+    outcome: "Everything handled, and someone keeping an eye on it every month.",
     setup: "$7,500",
     setupFounding: "$1,900",
     monthly: "$997",
