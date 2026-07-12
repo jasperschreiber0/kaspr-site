@@ -92,7 +92,8 @@ export function Problem() {
           </h2>
           <p className="text-base text-mid leading-relaxed max-w-md mb-14">
             You&apos;re brilliant at your craft. The problem is everything that
-            happens when you&apos;re not looking at your phone.
+            happens when you&apos;re not looking at your phone — and a single
+            missed enquiry can be worth hundreds of dollars.
           </p>
         </Reveal>
 

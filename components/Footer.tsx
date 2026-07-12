@@ -31,7 +31,7 @@ export function Footer() {
           <div className="flex-shrink-0">
             <p className="font-serif text-2xl text-cream mb-2">kaspr</p>
             <p className="text-sm text-cream/35 leading-relaxed max-w-[200px]">
-              Social media automation for Australian beauty &amp; wellness businesses.
+              The AI front desk for Australian beauty &amp; wellness businesses.
             </p>
           </div>
 

@@ -32,7 +32,7 @@ function DMBubble({
         {children}
         {isKaspr && (
           <p className="text-[10px] text-white/60 text-right mt-1">
-            Kaspr · automated ✓
+            Kaspr · handled ✓
           </p>
         )}
       </div>
@@ -86,8 +86,8 @@ function PhoneMockup() {
           </DMBubble>
 
           <DMBubble from="kaspr" delay="400ms">
-            Got it! Trending audio + caption matched — queuing for Thu 6:40pm,
-            your best engagement window 📈
+            Got it! Posting this Thu 6:40pm — your best time for
+            engagement 📈
           </DMBubble>
 
           <DMBubble from="client" delay="800ms">
@@ -109,7 +109,7 @@ function PhoneMockup() {
                 />
               ))}
             </div>
-            <span className="text-[10px] text-white/30">watching for trends…</span>
+            <span className="text-[10px] text-white/30">keeping your feed alive…</span>
           </div>
         </div>
 
@@ -137,24 +137,25 @@ export function Hero() {
         {/* Eyebrow + heading */}
         <div className="mb-12">
           <p className="text-2xs font-bold uppercase tracking-[0.2em] text-coral mb-8 opacity-0 animate-[fade-up_0.6s_0.2s_ease_forwards]">
-            Your Instagram&apos;s AI front desk · Australian beauty &amp; wellness
+            The AI front desk for Australian beauty &amp; wellness
           </p>
           <h1
             className="font-serif text-display-lg text-cream leading-[0.95] tracking-tight opacity-0 animate-[fade-up_0.8s_0.4s_ease_forwards]"
             style={{ maxWidth: "18ch" }}
           >
-            Turn Instagram attention into{" "}
-            <em className="text-coral/80 not-italic">booked revenue.</em>
+            Your Instagram keeps working{" "}
+            <em className="text-coral/80 not-italic">while you&apos;re with a client.</em>
           </h1>
         </div>
 
         {/* Subhead + CTA — constrained to left half so the phone never overlaps */}
         <div className="max-w-md opacity-0 animate-[fade-up_0.7s_0.65s_ease_forwards]">
           <p className="text-base text-cream/55 leading-relaxed mb-8">
-            Every DM and comment gets answered in seconds and quiet
-            enquiries get followed up, so nothing goes cold. Send us your
-            photos, reels and voice notes and we&apos;ll keep your feed
-            posting too — while you&apos;re on the floor.
+            Every DM and comment gets answered in seconds, so no one books
+            somewhere else while you&apos;re mid-appointment. Quiet enquiries
+            get chased up before they go cold. Send through your photos,
+            reels and voice notes and your feed keeps posting too — Kaspr
+            takes it from there.
           </p>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <a

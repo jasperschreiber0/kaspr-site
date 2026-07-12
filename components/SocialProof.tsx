@@ -4,7 +4,7 @@ const SCENARIOS = [
   {
     label: "While you're with a client",
     title: "The 9pm enquiry gets answered",
-    desc: "A new client DMs while you're closing up. Kaspr replies within minutes with your prices and availability — in your voice, not a bot's.",
+    desc: "A new client DMs while you're closing up. Kaspr replies within minutes with your prices and availability — in your own words, like you'd replied yourself.",
   },
   {
     label: "Between appointments",
@@ -35,8 +35,9 @@ export function SocialProof() {
           </h2>
           <p className="text-base text-mid leading-relaxed max-w-md mb-14">
             Kaspr is new, and we&apos;re not going to pad this page with
-            invented testimonials. The first ten studios get founding pricing,
-            a direct line to the founder, and their real results become the
+            invented testimonials, star ratings, or cherry-picked
+            screenshots. The first ten studios get founding pricing, a
+            direct line to the founder, and their real results become the
             case studies that sit right here.
           </p>
         </Reveal>

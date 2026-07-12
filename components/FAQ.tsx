@@ -6,19 +6,19 @@ import { Reveal } from "@/components/Reveal";
 const FAQS = [
   {
     q: "Do I need a big following for this to work?",
-    a: "Not at all. Kaspr works best for businesses that are already getting enquiries — whether that's 500 followers or 50,000. If people are DMing you or commenting on your posts, we can capture and convert those leads. A bigger following just means more volume.",
+    a: "Not at all. If people already DM you asking about pricing, or comment \"how much?\" on your posts, that's all Kaspr needs to start picking those up properly. A bigger following just means more of those moments to catch.",
   },
   {
     q: "Will it actually sound like me?",
-    a: "Yes. We spend the first week training the reply scripts and captions on your existing content, your tone, and a short voice brief you fill out. You review and approve the first round before anything goes live — and we keep tuning until it sounds like you.",
+    a: "Yes. We spend the first week learning from your existing content, your tone, and a short voice brief you fill out. You review and approve the first round before anything goes live — and we keep adjusting until it sounds like you.",
   },
   {
     q: "How long does setup take?",
-    a: "About seven days from when you pay. We run a kick-off call, build the flows, test them, and hand over before going live. You'll get a walkthrough of everything so you know exactly what's running.",
+    a: "About seven days from when you pay. We run a kick-off call, set everything up, test it, and hand over before going live. You'll get a walkthrough of everything so you know exactly what's running.",
   },
   {
     q: "What if I want to reply to DMs myself sometimes?",
-    a: "You can jump in any time. Kaspr handles the initial reply and the follow-ups, but if you want to take over a conversation you just reply from your own account and the automation pauses for that thread. It's not all-or-nothing.",
+    a: "You can jump in any time. Kaspr handles the initial reply and the follow-ups, but if you want to take over a conversation you just reply from your own account and Kaspr steps back for that thread. It's not all-or-nothing.",
   },
   {
     q: "What platforms does it work on?",
