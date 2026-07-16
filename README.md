@@ -46,7 +46,7 @@ components/
   Features.tsx      — Five feature tiles on dark background
   SocialProof.tsx   — Founding-cohort pitch + product-behaviour facts (no testimonials until we have real ones)
   HowItWorks.tsx    — Three-step process
-  Pricing.tsx       — Three tiers: Revive / Revive + Grow / Full Stack (setup $1,500 / $3,500 / $7,500 + monthly $297 / $597 / $997 AUD)
+  Pricing.tsx       — Two tiers: Grow / Full Stack (setup $3,500 / $7,500 + monthly $597 / $997 AUD; founding rate $900+$200/mo / $1,900+$400/mo for early clients — spot count is tracked in the component, not here)
   FAQ.tsx           — Accordion FAQ
   FooterCTA.tsx     — Coral CTA section
   Footer.tsx        — Links, ABN, social icons
