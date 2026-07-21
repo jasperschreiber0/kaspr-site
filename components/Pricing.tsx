@@ -16,10 +16,9 @@ const PLANS = [
       "Follow-ups on quiet enquiries, without you chasing",
       "Brand voice setup",
     ],
-    cta: "Start with Grow",
+    cta: "Get started",
     checkoutTier: "grow",
     featured: true,
-    pill: "Most studios start here",
   },
 ];
 
