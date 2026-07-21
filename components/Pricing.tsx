@@ -21,24 +21,6 @@ const PLANS = [
     featured: true,
     pill: "Most studios start here",
   },
-  {
-    name: "Full Stack",
-    outcome: "Everything handled, and someone keeping an eye on it every month.",
-    setup: "$7,500",
-    setupFounding: "$1,900",
-    monthly: "$997",
-    monthlyFounding: "$400",
-    features: [
-      "Everything in Grow",
-      "More frequent trend research across both platforms",
-      "Ongoing hands-on management and fine-tuning",
-      "Monthly reporting & strategy call",
-      "Priority support (4hr response)",
-    ],
-    cta: "Get started with Full Stack",
-    checkoutTier: "full_stack",
-    featured: false,
-  },
 ];
 
 // Update this manually as Founding spots close. Must reflect the real
@@ -87,7 +69,7 @@ export function Pricing() {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-stretch max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 gap-5 items-stretch max-w-md mx-auto">
           {PLANS.map((plan, i) => (
             <Reveal key={plan.name} delay={i * 80} className="h-full">
               <div
