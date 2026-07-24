@@ -16,13 +16,13 @@ const FEATURES = [
   {
     num: "03",
     title: "Every enquiry gets a reply, even at 10pm",
-    desc: "The moment someone messages you on Instagram asking about pricing or availability, Kaspr replies in your voice — any time of day. No one's left waiting for you to finish a treatment and check your phone.",
+    desc: "The moment someone messages you on Instagram asking about pricing or availability, Kaspr replies in your voice — any time of day. No one's left waiting for you to finish with a client and check your phone.",
     detail: "Never lose a lead to a slow reply",
   },
   {
     num: "04",
     title: "\"How much?\" becomes a booking conversation",
-    desc: "When someone comments \"how much?\" or \"where are you located?\" on your post, Kaspr moves the conversation into their DMs straight away — before another studio gets there first.",
+    desc: "When someone comments \"how much?\" or \"where are you located?\" on your post, Kaspr moves the conversation into their DMs straight away — before another business gets there first.",
     detail: "Turns passive scrollers into paying clients",
   },
   {
