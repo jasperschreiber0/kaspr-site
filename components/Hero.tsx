@@ -108,7 +108,7 @@ function PhoneMockup() {
         {/* Messages */}
         <div className="px-3 py-3 space-y-2 bg-[#0f0a05] min-h-[280px]">
           <DMBubble from="client" delay="0ms">
-            Hey! Do you still have any lash lift spots this week? 👀
+            Hey! Do you have any spots free this week? 👀
           </DMBubble>
 
           <DMBubble from="kaspr" delay="450ms">
@@ -156,13 +156,13 @@ export function Hero() {
         {/* Eyebrow + heading */}
         <div className="mb-12">
           <p className="text-2xs font-bold uppercase tracking-[0.2em] text-coral-bright mb-8 opacity-0 animate-[fade-up_0.6s_cubic-bezier(0.16,1,0.3,1)_0.2s_forwards]">
-            The AI front desk for Australian beauty &amp; wellness
+            The AI front desk for Australian appointment-based businesses
           </p>
           <h1
             className="font-serif text-display-lg text-cream leading-[0.95] tracking-tight opacity-0 animate-[fade-up_0.8s_cubic-bezier(0.16,1,0.3,1)_0.4s_forwards] max-w-[17ch] lg:max-w-[660px]"
           >
-            Your Instagram keeps working{" "}
-            <em className="text-coral-bright not-italic">while you&apos;re with a client.</em>
+            Someone DMs you mid-appointment.{" "}
+            <em className="text-coral-bright not-italic">Kaspr&apos;s already replied.</em>
           </h1>
         </div>
 

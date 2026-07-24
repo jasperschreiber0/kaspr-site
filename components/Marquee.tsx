@@ -1,16 +1,16 @@
 const ITEMS = [
-  "Nail salons",
-  "Hair salons",
-  "Blowdry bars",
+  "Personal trainers",
+  "Gyms",
+  "Fitness studios",
   "Pilates studios",
   "Yoga studios",
-  "Lash bars",
-  "Brow bars",
-  "Skin clinics",
-  "Beauty therapists",
+  "Beauty salons",
+  "Cosmetic clinics",
+  "Injectables clinics",
+  "Allied health clinics",
   "Wellness studios",
-  "Tanning studios",
-  "Personal trainers",
+  "Hair salons",
+  "Nail salons",
 ];
 
 function Sparkle() {
