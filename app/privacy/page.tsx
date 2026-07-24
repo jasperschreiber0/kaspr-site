@@ -29,7 +29,7 @@ export default function PrivacyPolicy() {
       <div className="max-w-3xl mx-auto px-6 py-12">
         <div className="bg-white rounded-2xl border border-stone-200 p-8 md:p-12">
           <p className="text-stone-600 text-sm leading-relaxed mb-10">
-            Kaspr Pty Ltd ("Kaspr", "we", "us", "our") operates kaspr.com.au and provides AI automation services to beauty and wellness studios across Australia. This Privacy Policy explains how we collect, use, share, and protect your personal information, including information processed in connection with TikTok, Instagram, WhatsApp, and Stripe.
+            Kaspr Pty Ltd ("Kaspr", "we", "us", "our") operates kaspr.com.au and provides AI automation services to appointment-based businesses across Australia. This Privacy Policy explains how we collect, use, share, and protect your personal information, including information processed in connection with TikTok, Instagram, WhatsApp, and Stripe.
           </p>
           <Section title="1. Who This Policy Applies To">
             <p>This policy applies to all visitors to kaspr.com.au, prospective clients, current clients, and individuals whose personal data is processed by Kaspr's automated services on behalf of our clients.</p>
