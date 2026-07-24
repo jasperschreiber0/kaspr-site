@@ -17,7 +17,7 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "Kaspr — The AI front desk for your Instagram",
   description:
-    "Kaspr answers your Instagram DMs and comments in seconds, follows up quiet enquiries, and keeps your feed posting — turning Instagram attention into booked revenue. Built for Australian beauty and wellness businesses.",
+    "Kaspr answers your Instagram DMs and comments in seconds, follows up quiet enquiries, and keeps your feed posting — turning Instagram attention into booked revenue. Built for Australian appointment-based businesses.",
   metadataBase: new URL("https://kaspr.com.au"),
   icons: {
     icon: "/kaspr-icon.png",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Kaspr — The AI front desk for your Instagram",
     description:
-      "Every DM and comment answered in seconds, quiet enquiries followed up, your feed kept posting — while you're on the floor.",
+      "Every DM and comment answered in seconds, quiet enquiries followed up, your feed kept posting — while you're with a client.",
     url: "https://kaspr.com.au",
     siteName: "Kaspr",
     locale: "en_AU",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kaspr — The AI front desk for Australian beauty businesses",
+    title: "Kaspr — The AI front desk for Australian appointment-based businesses",
     description:
       "Every DM answered, every quiet lead followed up, your feed kept posting. All done for you.",
   },
