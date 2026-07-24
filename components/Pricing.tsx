@@ -11,8 +11,8 @@ const PLANS = [
     features: [
       "Send photos, videos and ideas — we turn them into posts.",
       "Your Instagram and TikTok stay active every week.",
-      "Comments and DMs turned into booking conversations.",
-      "Every enquiry answered, day or night.",
+      "Instagram comments and DMs turned into booking conversations.",
+      "Every Instagram enquiry answered, day or night.",
       "Follow-ups on quiet leads, without you chasing them.",
       "Sounds like your business, not a bot.",
     ],
@@ -37,11 +37,11 @@ export function Pricing() {
             Your social media keeps working, even when you're busy
           </h2>
           <p className="text-base text-mid leading-relaxed max-w-xl mb-12">
-            Send us your photos, videos and ideas. We turn them into posts,
-            keep your Instagram and TikTok active, reply to common questions
-            and help turn conversations into bookings. Miss a call? We text
-            them back for you. No lock-in — cancel anytime. All prices in
-            AUD.
+            Send us your photos, videos and ideas. We turn them into posts
+            and keep your Instagram and TikTok active. On Instagram, we
+            reply to common questions and help turn conversations into
+            bookings. Miss a call? We text them back for you. No lock-in —
+            cancel anytime. All prices in AUD.
           </p>
         </Reveal>
 
