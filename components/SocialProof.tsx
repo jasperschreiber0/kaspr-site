@@ -36,7 +36,7 @@ export function SocialProof() {
           <p className="text-base text-mid leading-relaxed max-w-md mb-14">
             Kaspr is new, and we&apos;re not going to pad this page with
             invented testimonials, star ratings, or cherry-picked
-            screenshots. The first ten studios get founding pricing, a
+            screenshots. The first ten businesses get lifetime pricing, a
             direct line to the founder, and their real results become the
             case studies that sit right here.
           </p>
