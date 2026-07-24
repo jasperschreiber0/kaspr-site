@@ -31,13 +31,13 @@ export default function TermsOfService() {
             These Terms of Service govern your access to and use of services provided by Kaspr Pty Ltd ("Kaspr"), including kaspr.com.au and all associated automation services. By subscribing or using our services, you agree to these Terms.
           </p>
           <Section title="1. About Kaspr">
-            <p>Kaspr is an AI automation platform for beauty and wellness studios in Australia. Services include Instagram and TikTok content publishing, trend-matched post scheduling, and Instagram DM and comment management.</p>
+            <p>Kaspr is an AI automation platform for Australian appointment-based businesses. Services include Instagram and TikTok content publishing, trend-matched post scheduling, and Instagram DM and comment management.</p>
           </Section>
           <Section title="2. Eligibility">
-            <p>You must be at least 18 years of age and authorised to enter binding contracts. Our services are intended for Australian beauty and wellness studios.</p>
+            <p>You must be at least 18 years of age and authorised to enter binding contracts. Our services are intended for Australian appointment-based businesses.</p>
           </Section>
           <Section title="3. Subscriptions and Pricing">
-            <p>Subscription tiers (Grow, Full Stack) and pricing are detailed on our website in Australian dollars. Founding client pricing (50% lifetime discount) is available to the first ten subscribers, is non-transferable, and requires continuous active subscription.</p>
+            <p>Pricing is detailed on our website in Australian dollars. Lifetime early-customer pricing is available to the first ten subscribers, is non-transferable, and requires continuous active subscription.</p>
           </Section>
           <Section title="4. Payment and Billing">
             <p>Payments processed via Stripe. By providing payment details you authorise recurring monthly charges. Setup fees are charged once and are non-refundable. Failed payments may result in account suspension.</p>
