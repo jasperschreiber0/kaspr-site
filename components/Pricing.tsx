@@ -2,21 +2,21 @@ import { Reveal } from "@/components/Reveal";
 
 const PLANS = [
   {
-    name: "Grow",
-    outcome: "Your DMs and your feed, covered — you don't open Instagram once.",
+    name: "Kaspr",
+    outcome: "Your feed stays active and your enquiries keep moving.",
     setup: "$3,500",
     setupFounding: "$900",
     monthly: "$597",
     monthlyFounding: "$200",
     features: [
-      "Send in photos, reels & voice notes — we post them",
-      "Feed stays active with content matched to what's trending",
-      "Comments turned into DM booking conversations",
-      "Every DM answered, day or night",
-      "Follow-ups on quiet enquiries, without you chasing",
-      "Brand voice setup",
+      "Send photos, videos and ideas — we turn them into posts.",
+      "Your Instagram and TikTok stay active every week.",
+      "Comments and DMs turned into booking conversations.",
+      "Every enquiry answered, day or night.",
+      "Follow-ups on quiet leads, without you chasing them.",
+      "Sounds like your business, not a bot.",
     ],
-    cta: "Get started",
+    cta: "Start with Kaspr",
     checkoutTier: "grow",
     featured: true,
   },
@@ -34,12 +34,14 @@ export function Pricing() {
         <Reveal>
           <p className="section-tag mb-5">Pricing</p>
           <h2 className="font-serif text-display-sm text-espresso leading-tight mb-4 max-w-2xl">
-            Stop losing leads and posts to a full book.
+            Your social media keeps working, even when you're busy
           </h2>
           <p className="text-base text-mid leading-relaxed max-w-xl mb-12">
-            Send in your content and Kaspr keeps your feed posting and your
-            DMs answered — no social media manager, no daily app-opening. No
-            lock-in. All prices in AUD.
+            Send us your photos, videos and ideas. We turn them into posts,
+            keep your Instagram and TikTok active, reply to common questions
+            and help turn conversations into bookings. Miss a call? We text
+            them back for you. No lock-in — cancel anytime. All prices in
+            AUD.
           </p>
         </Reveal>
 
@@ -54,15 +56,16 @@ export function Pricing() {
             </div>
             <div className="flex-1">
               <p className="text-2xs font-bold uppercase tracking-[0.18em] text-coral mb-1.5">
-                Founding Clients — limited
+                Early customers
               </p>
               <h3 className="font-serif text-xl md:text-2xl text-espresso mb-1.5">
-                Founding rate, locked for life.
+                Lifetime pricing for our first 10 businesses.
               </h3>
               <p className="text-sm text-mid leading-relaxed">
-                First 10 studios. In exchange: a short testimonial and
-                permission to share your results once they're in. Prices
-                below reflect the Founding rate.
+                We're personally onboarding our first 10 businesses and
+                locking in this rate for as long as you stay with us. All we
+                ask for is honest feedback and a testimonial once we're
+                delivering real results. Prices below reflect this rate.
               </p>
             </div>
           </div>
