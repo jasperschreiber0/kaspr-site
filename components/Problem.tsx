@@ -3,7 +3,7 @@ import { Reveal } from "@/components/Reveal";
 const PAIN_POINTS = [
   {
     time: "11:47 pm",
-    scene: "A new client DMs asking about your lash lift pricing. You see it the next morning. She&rsquo;s already booked somewhere else.",
+    scene: "A new client DMs asking about pricing and availability. You see it the next morning. They&rsquo;ve already booked somewhere else.",
     label: "Missed DMs",
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden>
