@@ -81,14 +81,6 @@ export function Pricing() {
                     : "bg-white border border-border shadow-card hover:shadow-card-hover"
                 }`}
               >
-                {plan.pill && (
-                  <div className="absolute -top-3.5 left-8">
-                    <span className="bg-coral text-white text-[11px] font-bold uppercase tracking-[0.14em] px-3.5 py-1.5 rounded-full">
-                      {plan.pill}
-                    </span>
-                  </div>
-                )}
-
                 <div>
                   <p
                     className={`text-2xs font-bold uppercase tracking-[0.18em] mb-4 ${
