@@ -19,6 +19,20 @@ type ClientStats = {
   postsFailed: number;
   instagramPublished: number;
   tiktokPublished: number;
+  recoveredRevenue: number;
+  openOpportunities: number;
+  recoveredBookings: number;
+};
+
+type RevenueOpportunity = {
+  id: string;
+  client_id: string | null;
+  type: string;
+  status: string;
+  customer_phone: string | null;
+  estimated_value: number | null;
+  recovered_value: number | null;
+  detected_at: string;
 };
 
 function supabaseAdmin() {
@@ -39,6 +53,7 @@ async function getStats(): Promise<ClientStats[]> {
     { data: missedCalls },
     { data: contentQueue },
     { data: scheduledPosts },
+    { data: revenueSummary, error: revenueError },
   ] = await Promise.all([
     supabase.from("clients").select("id, business_name").eq("active", true),
     supabase
@@ -52,7 +67,9 @@ async function getStats(): Promise<ClientStats[]> {
       .from("scheduled_posts")
       .select("client_id, status, instagram_post_id, tiktok_post_id")
       .gte("created_at", since),
+    supabase.rpc("kaspr_revenue_summary", { p_since: since }),
   ]);
+  if (revenueError) throw new Error("Revenue data unavailable. Check the database connection and apply the booking controls migration.");
 
   return (clients || []).map((client) => {
     const convos = (conversations || []).filter((c) => c.client_id === client.id);
@@ -61,6 +78,7 @@ async function getStats(): Promise<ClientStats[]> {
       : null;
     const posts = (scheduledPosts || []).filter((p) => p.client_id === client.id);
     const posted = posts.filter((p) => p.status === "posted");
+    const recovery = (revenueSummary || []).find((o: {client_id:string}) => o.client_id === client.id);
 
     return {
       id: client.id,
@@ -79,8 +97,26 @@ async function getStats(): Promise<ClientStats[]> {
       postsFailed: posts.filter((p) => p.status === "failed").length,
       instagramPublished: posted.filter((p) => !!p.instagram_post_id).length,
       tiktokPublished: posted.filter((p) => !!p.tiktok_post_id).length,
+      recoveredRevenue: Number(recovery?.recovered_revenue || 0),
+      openOpportunities: Number(recovery?.open_opportunities || 0),
+      recoveredBookings: Number(recovery?.recovered_bookings || 0),
     };
   });
+}
+
+async function getRecentOpportunities(): Promise<RevenueOpportunity[]> {
+  const supabase = supabaseAdmin();
+  const since = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString();
+  const { data, error } = await supabase
+    .from("revenue_opportunities")
+    .select("id, client_id, type, status, customer_phone, estimated_value, recovered_value, detected_at")
+    .gte("detected_at", since)
+    .order("detected_at", { ascending: false })
+    .limit(12);
+  // The revenue migration may be deployed after the dashboard. Keep the
+  // existing operational dashboard usable during that rollout window.
+  if (error) throw error;
+  return (data || []) as RevenueOpportunity[];
 }
 
 function StatCell({ value, label }: { value: string; label: string }) {
@@ -94,10 +130,12 @@ function StatCell({ value, label }: { value: string; label: string }) {
 
 export default async function DashboardPage() {
   let rows: ClientStats[] = [];
+  let opportunities: RevenueOpportunity[] = [];
   let loadError: string | null = null;
 
   try {
     rows = await getStats();
+    opportunities = await getRecentOpportunities();
   } catch (err) {
     loadError = err instanceof Error ? err.message : "Unknown error loading stats";
   }
@@ -110,8 +148,11 @@ export default async function DashboardPage() {
       content: acc.content + r.contentReceived,
       postsPosted: acc.postsPosted + r.postsPosted,
       postsFailed: acc.postsFailed + r.postsFailed,
+      recoveredRevenue: acc.recoveredRevenue + r.recoveredRevenue,
+      openOpportunities: acc.openOpportunities + r.openOpportunities,
+      recoveredBookings: acc.recoveredBookings + r.recoveredBookings,
     }),
-    { conversations: 0, reviews: 0, missedCalls: 0, content: 0, postsPosted: 0, postsFailed: 0 }
+    { conversations: 0, reviews: 0, missedCalls: 0, content: 0, postsPosted: 0, postsFailed: 0, recoveredRevenue: 0, openOpportunities: 0, recoveredBookings: 0 }
   );
 
   return (
@@ -131,18 +172,20 @@ export default async function DashboardPage() {
             + New client
           </Link>
         </div>
-        <p className="text-sm text-mid mb-10">
+        {!loadError && <p className="text-sm text-mid mb-10">
+          <Link href="/dashboard/booking" className="underline mr-4">Confirm appointments</Link>
           {rows.length} active client{rows.length === 1 ? "" : "s"} &middot;{" "}
           {totals.conversations} conversations &middot; {totals.reviews} review requests &middot;{" "}
           {totals.missedCalls} missed calls handled &middot; {totals.content} posts received
           &middot; {totals.postsPosted} posts published
+          &middot; ${totals.recoveredRevenue.toLocaleString("en-AU", { minimumFractionDigits: 0, maximumFractionDigits: 0 })} recovered
           {totals.postsFailed > 0 && (
             <span className="text-coral-dark font-semibold">
               {" "}
               &middot; {totals.postsFailed} publish failure{totals.postsFailed === 1 ? "" : "s"}
             </span>
           )}
-        </p>
+        </p>}
 
         {loadError && (
           <p className="mb-8 rounded-lg border border-coral/30 bg-coral/5 px-4 py-3 text-sm text-coral-dark">
@@ -175,6 +218,9 @@ export default async function DashboardPage() {
                     Missed calls
                   </th>
                   <th className="px-4 py-3 text-center font-semibold text-espresso border-l border-border">
+                    Revenue recovery
+                  </th>
+                  <th className="px-4 py-3 text-center font-semibold text-espresso border-l border-border">
                     Content received
                   </th>
                   <th className="px-4 py-3 text-center font-semibold text-espresso border-l border-border">
@@ -202,6 +248,10 @@ export default async function DashboardPage() {
                       value={`${r.missedCallsHandled}`}
                       label={`${r.missedCallsTexted} texted`}
                     />
+                    <StatCell
+                      value={`$${r.recoveredRevenue.toLocaleString("en-AU", { maximumFractionDigits: 0 })}`}
+                      label={`${r.recoveredBookings} bookings · ${r.openOpportunities} open`}
+                    />
                     <StatCell value={`${r.contentReceived}`} label="items" />
                     <StatCell
                       value={`${r.instagramPublished} / ${r.tiktokPublished}`}
@@ -224,6 +274,51 @@ export default async function DashboardPage() {
               </tbody>
             </table>
           </div>
+        )}
+
+        {opportunities.length > 0 && (
+          <section className="mt-10">
+            <div className="flex items-end justify-between mb-3">
+              <div>
+                <p className="text-2xs font-bold uppercase tracking-[0.18em] text-coral mb-1">
+                  Revenue pipeline
+                </p>
+                <h2 className="font-serif text-2xl text-espresso">Recent opportunities</h2>
+              </div>
+              <span className="text-xs text-mid">Last 30 days</span>
+            </div>
+            <div className="overflow-hidden rounded-2xl border border-border bg-white shadow-card">
+              <div className="divide-y divide-border">
+                {opportunities.map((opportunity) => (
+                  <div key={opportunity.id} className="flex flex-wrap items-center justify-between gap-4 px-5 py-4">
+                    <div>
+                      <div className="font-medium text-espresso">
+                        {opportunity.type.replaceAll("_", " ")} · {opportunity.customer_phone || "Unknown customer"}
+                      </div>
+                      <div className="text-xs text-mid mt-1">
+                        {new Date(opportunity.detected_at).toLocaleString("en-AU")} · opportunity {opportunity.id.slice(0, 8)}
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-5 text-right">
+                      <div>
+                        <div className="font-serif text-lg text-espresso tabular-nums">
+                          {opportunity.recovered_value !== null
+                            ? `$${Number(opportunity.recovered_value).toLocaleString("en-AU", { maximumFractionDigits: 0 })}`
+                            : opportunity.estimated_value !== null
+                              ? `$${Number(opportunity.estimated_value).toLocaleString("en-AU", { maximumFractionDigits: 0 })}`
+                              : "—"}
+                        </div>
+                        <div className="text-2xs uppercase tracking-wide text-mid">{opportunity.recovered_value !== null ? "recovered" : "estimated"}</div>
+                      </div>
+                      <span className="rounded-full bg-cream-dark px-3 py-1 text-2xs font-bold uppercase tracking-wide text-mid">
+                        {opportunity.status}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
         )}
 
         <p className="mt-6 text-xs text-mid">
